@@ -1,0 +1,13 @@
+<environment>
+	<object position = "min 0 335 0" orientation = "0 0 0" shape="cuboid 190 390 10"
+		material="concrete" fill-color="0 0 0" opacity="1" />
+	
+	<object position = "min 210 335 0" orientation = "0 0 0" shape="cuboid 180 180 10"
+		material="concrete" fill-color="0 0 0" opacity="1" />
+	
+	<object position = "min 210 535 0" orientation = "0 0 0" shape="cuboid 180 180 10"
+		material="concrete" fill-color="0 0 0" opacity="1" />
+		
+		<object position = "min 410 325 0" orientation = "0 0 0" shape="cuboid 190 390 10"
+		material="concrete" fill-color="0 0 0" opacity="1" />
+</environment>

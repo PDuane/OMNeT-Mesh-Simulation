@@ -1,0 +1,146 @@
+file 5846 1660757822                                            
+version 2
+run RealisticChannelModel-0-20220817-11:37:00-9948
+attr configname RealisticChannelModel
+attr datetime 20220817-11:37:00
+attr experiment RealisticChannelModel
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Multihop
+attr processid 9948
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.radioMedium.typename "\"ApskScalarRadioMedium\""
+param *.radioMedium.backgroundNoise.power -110dBm
+param *.radioMedium.mediumLimitCache.centerFrequency 2.4GHz
+param *.host*.wlan[0].radio.typename "\"ApskScalarRadio\""
+param *.host*.wlan[0].radio.centerFrequency 2.4GHz
+param *.host*.wlan[0].radio.bandwidth 5MHz
+param *.host*.wlan[0].radio.transmitter.modulation "\"QPSK\""
+param *.host*.wlan[0].radio.transmitter.power 10mW
+param *.host*.wlan[0].radio.transmitter.preambleDuration 10us
+param *.host*.wlan[0].radio.transmitter.headerLength 8B
+param *.host*.wlan[0].radio.receiver.modulation "\"QPSK\""
+param *.host*.wlan[0].radio.receiver.sensitivity -120dBm
+param *.host*.wlan[0].radio.receiver.energyDetection -100dBm
+param *.host*.wlan[0].radio.receiver.snirThreshold 4dB
+param *.host*.ipv4.arp.typename "\"GlobalArp\""
+param *.host*.forwarding true
+param *.configurator.optimizeRoutes false
+param *.hostA.numApps 1
+param *.hostA.app[0].typename "\"UdpBasicApp\""
+param *.hostA.app[0].destAddresses "\"hostB\""
+param *.hostA.app[0].destPort 5000
+param *.hostA.app[0].messageLength 1000B
+param *.hostA.app[0].sendInterval exponential(12ms)
+param *.hostA.app[0].packetName "\"UDPData\""
+param *.hostB.numApps 1
+param *.hostB.app[0].typename "\"UdpSink\""
+param *.hostB.app[0].localPort 5000
+param *.host*.wlan[0].typename "\"WirelessInterface\""
+param *.host*.wlan[0].radio.typename "\"UnitDiskRadio\""
+param *.host*.wlan[0].radio.transmitter.communicationRange 300m
+param *.host*.wlan[0].radio.transmitter.interferenceRange 500m
+param *.host*.wlan[0].mac.typename "\"CsmaCaMac\""
+param *.host*.wlan[0].mac.ackTimeout 300us
+param *.host*.wlan[0].mac.useAck true
+param *.host*.wlan[0].queue.typename "\"DropTailQueue\""
+param *.host*.**.bitrate 1Mbps
+param *.hostA.wlan[0].radio.displayCommunicationRange true
+param *.hostC.wlan[0].radio.displayCommunicationRange true
+param *.configurator.addStaticRoutes false
+param *.host*.typename "\"AodvRouter\""
+param *.host*.mobility.typename "\"StationaryMobility\""
+param *.host*.mobility.initialZ 0.1m
+param *.physicalEnvironment.config "xmldoc(\"mine.xml\")"
+param *.radioMedium.obstacleLoss.typename "\"IdealObstacleLoss\""
+param *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
+param *.visualizer.physicalLinkVisualizer.displayLinks true
+param *.visualizer.physicalLinkVisualizer.packetFilter "\"UDPData*\""
+
+vector 0 Multihop.hostA.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 1 Multihop.hostB.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 2 Multihop.hostC.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 3 Multihop.hostD.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 4 Multihop.hostE.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 5 Multihop.hostF.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 6 Multihop.hostG.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 7 Multihop.hostH.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 8 Multihop.hostA.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 9 Multihop.hostB.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 10 Multihop.hostC.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 11 Multihop.hostD.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 12 Multihop.hostE.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 13 Multihop.hostF.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 14 Multihop.hostG.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 15 Multihop.hostH.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+0	5550 27 0 0 0 0 3 0 2 2 4
+1	5577 27 0 0 0 0 3 0 2 2 4
+2	5604 27 0 0 0 0 3 0 2 2 4
+3	5631 27 0 0 0 0 3 0 2 2 4
+4	5658 27 0 0 0 0 3 0 2 2 4
+5	5685 27 0 0 0 0 3 0 2 2 4
+6	5712 27 0 0 0 0 3 0 2 2 4
+7	5739 27 0 0 0 0 3 0 2 2 4
+8	5766 9 0 0 0 0 1 1 1 1 1
+9	5775 9 0 0 0 0 1 1 1 1 1
+10	5784 10 0 0 0 0 1 1 1 1 1
+11	5794 10 0 0 0 0 1 1 1 1 1
+12	5804 10 0 0 0 0 1 1 1 1 1
+13	5814 10 0 0 0 0 1 1 1 1 1
+14	5824 10 0 0 0 0 1 1 1 1 1
+15	5834 10 0 0 0 0 1 1 1 1 1
+
