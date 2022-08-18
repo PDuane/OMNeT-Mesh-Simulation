@@ -66,7 +66,7 @@ network Multihop
         hostF: <default("WirelessHost")> like INetworkNode {
             @display("p=400,525");
         }
-        hostG: <default("WirelessHost")> like WirelessHost {
+        hostG: <default("WirelessHost")> like INetworkNode {
             @display("p=200,725");
         }
         hostH: <default("WirelessHost")> like INetworkNode {
