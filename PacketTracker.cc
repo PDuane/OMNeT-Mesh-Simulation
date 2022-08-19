@@ -48,18 +48,18 @@ void PacketTracker::initialize()
 void PacketTracker::handleMessage(cMessage *msg)
 {
 
-    if (msg->isSelfMessage()) {
-            ASSERT(msg == selfMsg);
-    } else if (msg->arrivedOn("in")) {
-        if (msg->getKind() ==  UDP_I_DATA) {
-            for (int i = 0; i < MAX_FILTERS; i++) {
-                cPatternMatcher matcher(filters[i], true, true, true);
-                if (matcher.matches(msg->getName())) {
-                    matches[i]++;
-                }
-            }
-        }
-    }
+//    if (msg->isSelfMessage()) {
+//            ASSERT(msg == selfMsg);
+//    } else if (msg->arrivedOn("in")) {
+//        if (msg->getKind() ==  UDP_I_DATA) {
+//            for (int i = 0; i < MAX_FILTERS; i++) {
+//                cPatternMatcher matcher(filters[i], true, true, true);
+//                if (matcher.matches(msg->getName())) {
+//                    matches[i]++;
+//                }
+//            }
+//        }
+//    }
 }
 
 void PacketTracker::finish()

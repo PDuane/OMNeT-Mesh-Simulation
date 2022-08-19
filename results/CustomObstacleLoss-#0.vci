@@ -1,0 +1,499 @@
+file 4953854 1660900869                                         
+version 2
+run CustomObstacleLoss-0-20220819-03:20:38-6808
+attr configname CustomObstacleLoss
+attr datetime 20220819-03:20:38
+attr experiment CustomObstacleLoss
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Multihop
+attr processid 6808
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.radioMedium.obstacleLoss.typename "\"MaterialAttenuationObstacleLoss\""
+param *.scenarioManager.script "xml(\"<x><shutdown t='0s' module='hostE'/><shutdown t='0s' module='hostG'/></x>\")"
+param *.hostD.**.bitrate 0.8Mbps
+param *.hostA.numApps 2
+param *.hostA.app[0].dscp 0
+param *.hostA.app[0].packetName "\"UDPData-Standard\""
+param *.hostA.app[1].typename "\"UdpBasicApp\""
+param *.hostA.app[1].destAddresses "\"hostB\""
+param *.hostA.app[1].destPort 5000
+param *.hostA.app[1].messageLength 100B
+param *.hostA.app[1].sendInterval 17ms
+param *.hostA.app[1].packetName "\"UDPData-Priority\""
+param *.hostA.app[1].dscp 14
+param *.radioMedium.typename "\"ApskScalarRadioMedium\""
+param *.radioMedium.backgroundNoise.power -110dBm
+param *.radioMedium.mediumLimitCache.centerFrequency 2.4GHz
+param *.host*.wlan[0].radio.typename "\"ApskScalarRadio\""
+param *.host*.wlan[0].radio.centerFrequency 2.4GHz
+param *.host*.wlan[0].radio.bandwidth 5MHz
+param *.host*.wlan[0].radio.transmitter.modulation "\"QPSK\""
+param *.host*.wlan[0].radio.transmitter.power 10mW
+param *.host*.wlan[0].radio.transmitter.preambleDuration 10us
+param *.host*.wlan[0].radio.transmitter.headerLength 8B
+param *.host*.wlan[0].radio.receiver.modulation "\"QPSK\""
+param *.host*.wlan[0].radio.receiver.sensitivity -120dBm
+param *.host*.wlan[0].radio.receiver.energyDetection -100dBm
+param *.host*.wlan[0].radio.receiver.snirThreshold 4dB
+param *.host*.ipv4.arp.typename "\"GlobalArp\""
+param *.host*.forwarding true
+param *.configurator.optimizeRoutes false
+param *.hostA.numApps 1
+param *.hostA.app[0].typename "\"UdpBasicApp\""
+param *.hostA.app[0].destAddresses "\"hostB\""
+param *.hostA.app[0].destPort 5000
+param *.hostA.app[0].messageLength 900B
+param *.hostA.app[0].sendInterval 1ms
+param *.hostA.app[0].packetName "\"UDPData\""
+param *.hostB.numApps 1
+param *.hostB.app[0].typename "\"UdpSink\""
+param *.hostB.app[0].localPort 5000
+param *.host*.wlan[0].typename "\"WirelessInterface\""
+param *.host*.wlan[0].radio.typename "\"UnitDiskRadio\""
+param *.host*.wlan[0].radio.transmitter.communicationRange 300m
+param *.host*.wlan[0].radio.transmitter.interferenceRange 500m
+param *.host*.wlan[0].mac.typename "\"CsmaCaMac\""
+param *.host*.wlan[0].mac.ackTimeout 300us
+param *.host*.wlan[0].mac.useAck true
+param *.host*.wlan[0].queue.typename "\"DropTailQueue\""
+param *.host*.**.bitrate 1Mbps
+param *.hostA.wlan[0].radio.displayCommunicationRange true
+param *.hostC.wlan[0].radio.displayCommunicationRange true
+param *.configurator.addStaticRoutes false
+param *.host*.typename "\"AodvRouter\""
+param *.host*.mobility.typename "\"StationaryMobility\""
+param *.host*.mobility.initialZ 0.1m
+param *.physicalEnvironment.config "xmldoc(\"mine.xml\")"
+param *.radioMedium.obstacleLoss.typename "\"IdealObstacleLoss\""
+param *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
+param *.visualizer.physicalLinkVisualizer.displayLinks true
+param *.visualizer.physicalLinkVisualizer.packetFilter "\"UDPData*\""
+
+vector 0 Multihop.hostA.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 1 Multihop.hostB.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 2 Multihop.hostC.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 3 Multihop.hostD.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 4 Multihop.hostE.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 5 Multihop.hostF.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 6 Multihop.hostG.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 7 Multihop.hostH.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 8 Multihop.hostA.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 9 Multihop.hostB.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 10 Multihop.hostC.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 11 Multihop.hostD.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 12 Multihop.hostE.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 13 Multihop.hostF.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 14 Multihop.hostG.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 15 Multihop.hostH.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 16 Multihop.hostA.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 17 Multihop logPacketSent:vector(count) ETV
+attr source hostA.app[0].packetSent
+vector 18 Multihop.hostA.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 19 Multihop.hostA.wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 20 Multihop.hostA.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 21 Multihop.hostA.wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 22 Multihop.hostA.wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 23 Multihop.hostA.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 24 Multihop.hostC.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 25 Multihop.hostC.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 26 Multihop.hostD.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 27 Multihop.hostD.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 28 Multihop.hostF.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, vector(packetBytes)"
+vector 29 Multihop.hostD.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 30 Multihop.hostD.wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 31 Multihop.hostD.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 32 Multihop.hostD.wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 33 Multihop.hostD.wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 34 Multihop.hostD.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 35 Multihop.hostF.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 36 Multihop.hostF.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 37 Multihop.hostA.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 38 Multihop.hostA.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 39 Multihop.hostH.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 40 Multihop.hostH.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 41 Multihop.hostC.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 42 Multihop.hostC.wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 43 Multihop.hostC.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 44 Multihop.hostC.wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 45 Multihop.hostC.wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 46 Multihop.hostC.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 47 Multihop.hostA.app[1] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 48 Multihop.hostF.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 49 Multihop.hostF.wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 50 Multihop.hostF.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 51 Multihop.hostF.wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 52 Multihop.hostF.wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 53 Multihop.hostF.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 54 Multihop.hostH.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 55 Multihop.hostH.wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 56 Multihop.hostH.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 57 Multihop.hostH.wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 58 Multihop.hostH.wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 59 Multihop.hostB.wlan[0].radio bitErrorRate:vector ETV
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, vector"
+vector 60 Multihop.hostB.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 61 Multihop.hostB.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 62 Multihop.hostB.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 63 Multihop.hostB.wlan[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 64 Multihop.hostB.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 65 Multihop.hostB.wlan[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 66 Multihop.hostB.wlan[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 67 Multihop.hostA.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, vector(packetBytes)"
+vector 68 Multihop.hostH.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 69 Multihop.hostB.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 70 Multihop.hostH.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 71 Multihop.hostB.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 72 Multihop.hostC.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 73 Multihop.hostF.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 74 Multihop.hostA.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 75 Multihop.hostD.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 76 Multihop.hostB.app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 77 Multihop.hostB.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 78 Multihop.hostB.app[0] endToEndDelay:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, vector"
+attr unit s
+vector 79 Multihop.hostB.app[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr source appPkSeqNo(packetReceived)
+attr title "received packet sequence number, vector"
+vector 80 Multihop logPacketReceived:vector(count) ETV
+attr source hostB.app[0].packetReceived
+vector 81 Multihop.hostC.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, vector(packetBytes)"
+vector 82 Multihop.hostD.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, vector(packetBytes)"
+vector 83 Multihop.hostH.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, vector(packetBytes)"
+vector 84 Multihop.hostA.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 85 Multihop.hostA.app[1] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+0	19253 51386 0 189898 0 19.98789721591 1927 0 3 4812 12510
+1	70639 43789 0 190007 0 19.996163884422 1633 0 3 4077 10599
+2	114428 125 0 1261 0 0.330027701824 7 0 3 12 30
+3	114553 83175 0 189922 0 19.988178383384 3123 0 3 7802 20284
+4	197728 37 0 24 0 0 4 0 2 2 4
+5	197765 77015 0 190016 0 19.996354718332 2880 0 3 7195 18707
+6	274780 37 0 25 0 0 4 0 2 2 4
+7	274817 77 0 1348 0 0.331945312414 5 0 3 7 17
+8	274894 198308 0 190024 0 19.996356062972 7431 0 3 11976 28456
+9	473202 120763 0 190021 0 19.996355552242 4509 0 3 6573 15209
+10	593965 205287 0 190022 0 19.996355661794 7414 0 3 14828 37042
+11	799252 209122 0 190018 0 19.99635538546 7551 0 3 10465 23681
+12	1008374 21 0 24 0 0 2 0 1 1 1
+13	1008395 245297 0 190016 0 19.996354718332 8847 0 3 13404 31154
+14	1253692 21 0 25 0 0 2 0 1 1 1
+15	1253713 204590 0 190020 0 19.99635538546 7376 0 3 14763 36713
+16	1458303 415653 26 190045 0.001 20 20000 900 900 18000000 16200000000
+17	1873956 444547 26 190045 0.001 20 20000 1 20000 200010000 2666866670000
+18	2318503 440149 29 190046 0.001 20 21178 32 908 18287072 16502998912
+19	2758652 443695 37 190048 0.002363281473 20 21178 73 949 19155370 18038139034
+20	3202347 497022 37 190048 0.002363281473 20 21902 0 20454 224055133 3055924009951
+21	3699369 21446 37 189928 0.002363281473 19.988179550858 724 73 949 653324 615108580
+22	3720815 29530 37 189928 0.002363281473 19.988179550858 724 0 19.306179550858 6957.6969765975 90279.672349186
+23	3750345 106566 39 189898 0.002433281473 19.98789721591 3848 0 2 3848 5772
+24	3856911 131 55 1318 0.003091781819 0.331137588748 5 32 32 160 5120
+25	3857042 126 55 1318 0.003091781819 0.331137588748 5 1 5 15 55
+26	3857168 185 60 1440 0.003092448947 0.336847525425 7 28 32 220 6928
+27	3857353 178 60 1440 0.003092448947 0.336847525425 7 1 7 28 140
+28	3857531 21216 63 189906 0.003092626113 19.98789856055 715 18 949 643852 606102894
+29	3878747 78 73 1472 0.005736923555 0.33727400326 3 28 32 92 2832
+30	3878825 21451 75 189904 0.005736923555 19.987898383384 724 69 949 652444 614212740
+31	3900276 38608 75 189904 0.005736923555 19.987898383384 1350 0 126 54349 3536727
+32	3938884 18527 75 189849 0.005736923555 19.980000538398 626 69 949 564242 531224242
+33	3957411 25141 75 189849 0.005736923555 19.980000538398 626 0 2.712803964104 625.54799505898 887.23874555248
+34	3982552 172536 80 189922 0.006126923555 19.988178383384 6240 0 2 6240 9360
+35	4155088 159 97 1385 0.006947590683 0.333770313106 6 28 32 188 5904
+36	4155247 153 97 1385 0.006947590683 0.333770313106 6 1 6 21 91
+37	4155400 132 103 1496 0.006948091029 0.338705170734 5 28 32 156 4880
+38	4155532 127 103 1496 0.006948091029 0.338705170734 5 1 5 15 55
+39	4155659 80 108 1304 0.006948257811 0.331137312414 3 32 32 96 3072
+40	4155739 77 108 1304 0.006948257811 0.331137312414 3 1 3 6 14
+41	4155816 53 115 1238 0.007152625451 0.328959701824 2 32 32 64 2048
+42	4155869 53 117 1240 0.007152625451 0.328959701824 2 73 73 146 10658
+43	4155922 102 117 1240 0.007152625451 0.328959701824 4 0 1 2 2
+44	4156024 53 117 1240 0.007152625451 0.328959701824 2 73 73 146 10658
+45	4156077 51 117 1240 0.007152625451 0.328959701824 2 0 0 0 0
+46	4156128 204 119 1261 0.007462625451 0.330027701824 8 0 2 8 12
+47	4156332 24443 175 189958 0.017 19.992 1176 100 100 117600 11760000
+48	4180775 53 1258 1421 0.33000582863 0.336030858297 2 28 32 60 1808
+49	4180828 18483 1260 189827 0.33000582863 19.97977187127 624 69 949 563220 530318312
+50	4199311 35074 1260 190011 0.33000582863 19.996164718332 1229 0 95 53343 3660327
+51	4234385 18090 1273 190011 0.330028645286 19.996164718332 605 69 949 545989 514085293
+52	4252475 24315 1273 190011 0.330028645286 19.996164718332 605 0 2.781992502572 808.89142599446 1646.0848107374
+53	4276790 159730 1280 190017 0.330478645286 19.996354718332 5754 0 2 5755 8633
+54	4436520 27 1290 1290 0.330811167104 0.330811167104 1 32 32 32 1024
+55	4436547 27 1292 1292 0.330811167104 0.330811167104 1 73 73 73 5329
+56	4436574 52 1292 1300 0.330811167104 0.331137312414 2 0 1 1 1
+57	4436626 27 1300 1300 0.331137312414 0.331137312414 1 73 73 73 5329
+58	4436653 38 1300 1300 0.331137312414 0.331137312414 1 0.00032614531 0.00032614531 0.00032614531 1.06370763235e-07
+59	4436691 65793 1307 189983 0.331137479196 19.995935884422 1438 2.2501202176478e-23 6.4050145658654e-22 4.9626640582231e-20 1.1407592362109e-41
+60	4502484 24297 1310 189986 0.331137479196 19.995935884422 814 32 908 707036 638591056
+61	4526781 24190 1310 189986 0.331137479196 19.995935884422 814 1 814 331705 180115815
+62	4550971 27 1312 1312 0.331137479196 0.331137479196 1 28 28 28 784
+63	4550998 27 1314 1314 0.331137479196 0.331137479196 1 69 69 69 4761
+64	4551025 52 1314 1314 0.331137479196 0.331137479196 2 0 1 1 1
+65	4551077 27 1314 1314 0.331137479196 0.331137479196 1 69 69 69 4761
+66	4551104 26 1314 1314 0.331137479196 0.331137479196 1 0 0 0 0
+67	4551130 35426 1321 189991 0.331137989926 19.995936395152 1212 18 949 546150 504291406
+68	4586556 104 1324 1348 0.331287312414 0.331945312414 4 0 2 4 6
+69	4586660 90784 1326 190007 0.331287479196 19.996163884422 3260 0 2 3260 4890
+70	4677444 42371 1381 189982 0.333769979542 19.99593571764 1423 69 949 1290187 1215622903
+71	4719815 27 1443 1443 0.336847692207 0.336847692207 1 69 69 69 4761
+72	4719842 67611 1445 189989 0.336847801759 19.995935993974 2275 69 949 2055615 1935518795
+73	4787453 27 1492 1492 0.338704670388 0.338704670388 1 69 69 69 4761
+74	4787480 23526 2021 189829 0.356861505682 19.979772371616 793 149 949 711757 669378193
+75	4811006 17844 2109 189981 0.365125672464 19.99593571764 597 149 949 542553 511306797
+76	4828850 24270 2115 189987 0.365125839246 19.995935884422 813 100 900 700500 627330000
+77	4853120 4226 2115 190049 0.1 20 200 0 872000 56040000 22879552000000
+78	4857346 33483 2115 189987 0.365125839246 19.995935884422 813 0.364125839246 19.426935884422 8423.7784610341 111836.41204851
+79	4890829 24067 2115 189987 0.365125839246 19.995935884422 813 0 568 215900 80770604
+80	4914896 24162 2115 189987 0.365125839246 19.995935884422 813 1 813 330891 179453219
+81	4939058 1923 2117 185329 0.365125948798 19.495980573894 65 18 949 59154 55881988
+82	4940981 5508 5923 188819 0.779430338242 19.870590013828 184 149 949 169016 159561784
+83	4946489 441 24818 176966 2.762628058756 18.62235741448 15 149 949 12635 11752215
+84	4946930 3461 190049 190049 0.1 20 200 0 0 0 0
+85	4950391 3461 190049 190049 0.1 20 200 0 0 0 0
+

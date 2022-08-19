@@ -24,6 +24,7 @@ import inet.node.inet.INetworkNode;
 import inet.visualizer.integrated.IntegratedCanvasVisualizer;
 import inet.physicallayer.contract.packetlevel.IRadioMedium;
 import inet.environment.common.PhysicalEnvironment;
+import inet.common.scenario.ScenarioManager;
 
 network Multihop
 {
@@ -48,6 +49,9 @@ network Multihop
         physicalEnvironment: PhysicalEnvironment {
             @display("p=500,200");
         }
+        scenarioManager: ScenarioManager {
+            @display("p=660,125");
+        }
         hostA: <default("WirelessHost")> like INetworkNode {
             @display("p=50,325");
         }
@@ -71,11 +75,5 @@ network Multihop
         }
         hostH: <default("WirelessHost")> like INetworkNode {
             @display("p=400,725");
-        }
-        packetTrackerG:PacketTracker {
-            @display("p=640,125");
-        }
-        packetTrackerH:PacketTracker {
-            @display("p=640,200");
         }
 }

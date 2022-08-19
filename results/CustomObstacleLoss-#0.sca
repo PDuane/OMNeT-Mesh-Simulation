@@ -1,0 +1,4039 @@
+version 2
+run CustomObstacleLoss-0-20220819-03:20:38-6808
+attr configname CustomObstacleLoss
+attr datetime 20220819-03:20:38
+attr experiment CustomObstacleLoss
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Multihop
+attr processid 6808
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.radioMedium.obstacleLoss.typename "\"MaterialAttenuationObstacleLoss\""
+param *.scenarioManager.script "xml(\"<x><shutdown t='0s' module='hostE'/><shutdown t='0s' module='hostG'/></x>\")"
+param *.hostD.**.bitrate 0.8Mbps
+param *.hostA.numApps 2
+param *.hostA.app[0].dscp 0
+param *.hostA.app[0].packetName "\"UDPData-Standard\""
+param *.hostA.app[1].typename "\"UdpBasicApp\""
+param *.hostA.app[1].destAddresses "\"hostB\""
+param *.hostA.app[1].destPort 5000
+param *.hostA.app[1].messageLength 100B
+param *.hostA.app[1].sendInterval 17ms
+param *.hostA.app[1].packetName "\"UDPData-Priority\""
+param *.hostA.app[1].dscp 14
+param *.radioMedium.typename "\"ApskScalarRadioMedium\""
+param *.radioMedium.backgroundNoise.power -110dBm
+param *.radioMedium.mediumLimitCache.centerFrequency 2.4GHz
+param *.host*.wlan[0].radio.typename "\"ApskScalarRadio\""
+param *.host*.wlan[0].radio.centerFrequency 2.4GHz
+param *.host*.wlan[0].radio.bandwidth 5MHz
+param *.host*.wlan[0].radio.transmitter.modulation "\"QPSK\""
+param *.host*.wlan[0].radio.transmitter.power 10mW
+param *.host*.wlan[0].radio.transmitter.preambleDuration 10us
+param *.host*.wlan[0].radio.transmitter.headerLength 8B
+param *.host*.wlan[0].radio.receiver.modulation "\"QPSK\""
+param *.host*.wlan[0].radio.receiver.sensitivity -120dBm
+param *.host*.wlan[0].radio.receiver.energyDetection -100dBm
+param *.host*.wlan[0].radio.receiver.snirThreshold 4dB
+param *.host*.ipv4.arp.typename "\"GlobalArp\""
+param *.host*.forwarding true
+param *.configurator.optimizeRoutes false
+param *.hostA.numApps 1
+param *.hostA.app[0].typename "\"UdpBasicApp\""
+param *.hostA.app[0].destAddresses "\"hostB\""
+param *.hostA.app[0].destPort 5000
+param *.hostA.app[0].messageLength 900B
+param *.hostA.app[0].sendInterval 1ms
+param *.hostA.app[0].packetName "\"UDPData\""
+param *.hostB.numApps 1
+param *.hostB.app[0].typename "\"UdpSink\""
+param *.hostB.app[0].localPort 5000
+param *.host*.wlan[0].typename "\"WirelessInterface\""
+param *.host*.wlan[0].radio.typename "\"UnitDiskRadio\""
+param *.host*.wlan[0].radio.transmitter.communicationRange 300m
+param *.host*.wlan[0].radio.transmitter.interferenceRange 500m
+param *.host*.wlan[0].mac.typename "\"CsmaCaMac\""
+param *.host*.wlan[0].mac.ackTimeout 300us
+param *.host*.wlan[0].mac.useAck true
+param *.host*.wlan[0].queue.typename "\"DropTailQueue\""
+param *.host*.**.bitrate 1Mbps
+param *.hostA.wlan[0].radio.displayCommunicationRange true
+param *.hostC.wlan[0].radio.displayCommunicationRange true
+param *.configurator.addStaticRoutes false
+param *.host*.typename "\"AodvRouter\""
+param *.host*.mobility.typename "\"StationaryMobility\""
+param *.host*.mobility.initialZ 0.1m
+param *.physicalEnvironment.config "xmldoc(\"mine.xml\")"
+param *.radioMedium.obstacleLoss.typename "\"IdealObstacleLoss\""
+param *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
+param *.visualizer.physicalLinkVisualizer.displayLinks true
+param *.visualizer.physicalLinkVisualizer.packetFilter "\"UDPData*\""
+
+scalar Multihop.radioMedium.propagation "Arrival computation count" 33453
+scalar Multihop.radioMedium "transmission count" 4779
+scalar Multihop.radioMedium "signal send count" 33453
+scalar Multihop.radioMedium "reception computation count" 23895
+scalar Multihop.radioMedium "interference computation count" 71185
+scalar Multihop.radioMedium "reception decision computation count" 16458
+scalar Multihop.radioMedium "listening decision computation count" 31641
+scalar Multihop.radioMedium "reception cache hit" 83.98597977388
+attr unit %
+scalar Multihop.radioMedium "interference cache hit" 66.666666666667
+attr unit %
+scalar Multihop.radioMedium "noise cache hit" 0
+attr unit %
+scalar Multihop.radioMedium "snir cache hit" 50
+attr unit %
+scalar Multihop.radioMedium "reception decision cache hit" 50
+attr unit %
+scalar Multihop.radioMedium "reception result cache hit" 0
+attr unit %
+scalar Multihop.hostA.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Multihop.hostA.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Multihop.hostA.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Multihop.hostA.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Multihop.hostA.wlan[0].mac.queue packetPopped:count 724
+attr interpolationmode none
+attr title "packet popped, count"
+scalar Multihop.hostA.wlan[0].mac.queue packetPopped:sum(packetBytes) 653324
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic Multihop.hostA.wlan[0].mac.queue queueingTime:histogram
+field count 724
+field mean 9.6100786969578
+field stddev 5.6909402236036
+field min 0
+field max 19.306179550858
+field sum 6957.6969765975
+field sqrsum 90279.672349186
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	27
+bin	0.5	17
+bin	1	11
+bin	1.5	16
+bin	2	21
+bin	2.5	24
+bin	3	34
+bin	3.5	11
+bin	4	25
+bin	4.5	13
+bin	5	6
+bin	5.5	19
+bin	6	23
+bin	6.5	19
+bin	7	22
+bin	7.5	28
+bin	8	29
+bin	8.5	21
+bin	9	13
+bin	9.5	15
+bin	10	10
+bin	10.5	7
+bin	11	9
+bin	11.5	16
+bin	12	16
+bin	12.5	23
+bin	13	23
+bin	13.5	13
+bin	14	15
+bin	14.5	14
+bin	15	22
+bin	15.5	21
+bin	16	17
+bin	16.5	38
+bin	17	30
+bin	17.5	22
+bin	18	23
+bin	18.5	2
+bin	19	9
+bin	19.5	0
+bin	20	0
+bin	20.5	0
+bin	21	0
+bin	21.5	0
+bin	22	0
+bin	22.5	0
+bin	23	0
+bin	23.5	0
+bin	24	0
+bin	24.5	0
+scalar Multihop.hostA.wlan[0].mac.queue queueLength:max 20454
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar Multihop.hostA.wlan[0].mac.queue queueLength:timeavg 10226.670823914
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar Multihop.hostA.wlan[0].mac.queue packetPushed:count 21178
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar Multihop.hostA.wlan[0].mac.queue packetPushed:sum(packetBytes) 19155370
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar Multihop.hostA.wlan[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Multihop.hostA.wlan[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Multihop.hostA.wlan[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar Multihop.hostA.wlan[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar Multihop.hostA.wlan[0].mac numRetry 238
+scalar Multihop.hostA.wlan[0].mac numSentWithoutRetry 586
+scalar Multihop.hostA.wlan[0].mac numGivenUp 0
+scalar Multihop.hostA.wlan[0].mac numCollision 1212
+scalar Multihop.hostA.wlan[0].mac numSent 721
+scalar Multihop.hostA.wlan[0].mac numReceived 1
+scalar Multihop.hostA.wlan[0].mac numSentBroadcast 2
+scalar Multihop.hostA.wlan[0].mac numReceivedBroadcast 4
+scalar Multihop.hostA.wlan[0].mac packetDropIncorrectlyReceived:count 1212
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar Multihop.hostA.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 546150
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar Multihop.hostA.wlan[0].mac packetDropNotAddressedToUs:count 793
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar Multihop.hostA.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 711757
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar Multihop.hostA.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, count"
+scalar Multihop.hostA.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, sum(packetBytes)"
+scalar Multihop.hostA.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, count"
+scalar Multihop.hostA.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, sum(packetBytes)"
+scalar Multihop.hostA.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+statistic Multihop.hostA.wlan[0].radio minSnir:histogram
+field count 2732
+field mean 450.62256141309
+field stddev 413.92579227475
+field min 0.00030135532607862
+field max 4391.5383156971
+field sum 1231100.8377805
+field sqrsum 1022676500.363
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	1212
+bin	100	0
+bin	200	0
+bin	300	0
+bin	400	0
+bin	500	0
+bin	600	14
+bin	700	0
+bin	800	1504
+bin	900	0
+bin	1000	0
+bin	1100	0
+bin	1200	0
+bin	1300	0
+bin	1400	0
+bin	1500	0
+bin	1600	0
+bin	1700	0
+bin	1800	0
+bin	1900	0
+bin	2000	0
+bin	2100	0
+bin	2200	0
+bin	2300	0
+bin	2400	0
+bin	2500	0
+bin	2600	0
+bin	2700	0
+bin	2800	0
+bin	2900	0
+bin	3000	0
+bin	3100	0
+bin	3200	0
+bin	3300	0
+bin	3400	0
+bin	3500	0
+bin	3600	0
+bin	3700	0
+bin	3800	0
+bin	3900	0
+bin	4000	0
+bin	4100	0
+bin	4200	0
+bin	4300	2
+bin	4400	0
+bin	4500	0
+bin	4600	0
+bin	4700	0
+bin	4800	0
+bin	4900	0
+bin	5000	0
+bin	5100	0
+bin	5200	0
+bin	5300	0
+bin	5400	0
+bin	5500	0
+statistic Multihop.hostA.wlan[0].radio packetErrorRate:histogram
+field count 2732
+field mean 0.44363036640006
+field stddev 0.49690257504416
+field min 0
+field max 1
+field sum 1211.998161005
+field sqrsum 1211.9963220154
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	1520
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+bin	0.52	0
+bin	0.54	0
+bin	0.56	0
+bin	0.58	0
+bin	0.6	0
+bin	0.62	0
+bin	0.64	0
+bin	0.66	0
+bin	0.68	0
+bin	0.7	0
+bin	0.72	0
+bin	0.74	0
+bin	0.76	0
+bin	0.78	0
+bin	0.8	0
+bin	0.82	0
+bin	0.84	0
+bin	0.86	0
+bin	0.88	0
+bin	0.9	0
+bin	0.92	0
+bin	0.94	0
+bin	0.96	0
+bin	0.98	622
+bin	1	590
+bin	1.02	0
+bin	1.04	0
+bin	1.06	0
+bin	1.08	0
+bin	1.1	0
+bin	1.12	0
+bin	1.14	0
+bin	1.16	0
+bin	1.18	0
+bin	1.2	0
+bin	1.22	0
+bin	1.24	0
+bin	1.26	0
+statistic Multihop.hostA.wlan[0].radio bitErrorRate:histogram
+field count 2732
+field mean 0.028332406473806
+field stddev 0.042811043317539
+field min 0
+field max 0.47811072299956
+field sum 77.404134486439
+field sqrsum 7.1983824101788
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	1520
+bin	0.008	0
+bin	0.016	0
+bin	0.024	0
+bin	0.032	0
+bin	0.04	0
+bin	0.048	0
+bin	0.056	1199
+bin	0.064	0
+bin	0.072	0
+bin	0.08	0
+bin	0.088	0
+bin	0.096	0
+bin	0.104	0
+bin	0.112	0
+bin	0.12	0
+bin	0.128	0
+bin	0.136	0
+bin	0.144	0
+bin	0.152	0
+bin	0.16	0
+bin	0.168	0
+bin	0.176	0
+bin	0.184	0
+bin	0.192	0
+bin	0.2	0
+bin	0.208	0
+bin	0.216	0
+bin	0.224	0
+bin	0.232	0
+bin	0.24	0
+bin	0.248	0
+bin	0.256	0
+bin	0.264	0
+bin	0.272	0
+bin	0.28	0
+bin	0.288	0
+bin	0.296	0
+bin	0.304	0
+bin	0.312	0
+bin	0.32	0
+bin	0.328	0
+bin	0.336	0
+bin	0.344	0
+bin	0.352	0
+bin	0.36	0
+bin	0.368	0
+bin	0.376	0
+bin	0.384	0
+bin	0.392	0
+bin	0.4	0
+bin	0.408	0
+bin	0.416	0
+bin	0.424	0
+bin	0.432	0
+bin	0.44	0
+bin	0.448	0
+bin	0.456	0
+bin	0.464	0
+bin	0.472	13
+bin	0.48	0
+statistic Multihop.hostA.wlan[0].radio symbolErrorRate:histogram
+field count 2732
+field mean 0.054029973119583
+field stddev 0.07367877249774
+field min 0
+field max 0.72763158255196
+field sum 147.6098865627
+field sqrsum 22.800759705476
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	1520
+bin	0.014	0
+bin	0.028	0
+bin	0.042	0
+bin	0.056	0
+bin	0.07	0
+bin	0.084	0
+bin	0.098	0
+bin	0.112	1199
+bin	0.126	0
+bin	0.14	0
+bin	0.154	0
+bin	0.168	0
+bin	0.182	0
+bin	0.196	0
+bin	0.21	0
+bin	0.224	0
+bin	0.238	0
+bin	0.252	0
+bin	0.266	0
+bin	0.28	0
+bin	0.294	0
+bin	0.308	0
+bin	0.322	0
+bin	0.336	0
+bin	0.35	0
+bin	0.364	0
+bin	0.378	0
+bin	0.392	0
+bin	0.406	0
+bin	0.42	0
+bin	0.434	0
+bin	0.448	0
+bin	0.462	0
+bin	0.476	0
+bin	0.49	0
+bin	0.504	0
+bin	0.518	0
+bin	0.532	0
+bin	0.546	0
+bin	0.56	0
+bin	0.574	0
+bin	0.588	0
+bin	0.602	0
+bin	0.616	0
+bin	0.63	0
+bin	0.644	0
+bin	0.658	0
+bin	0.672	0
+bin	0.686	0
+bin	0.7	0
+bin	0.714	13
+bin	0.728	0
+scalar Multihop.hostA.wlan[0].radio transmissionState:count 3848
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Multihop.hostA.wlan[0].radio receptionState:count 7431
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Multihop.hostA.wlan[0].radio radioMode:count 1927
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar Multihop.hostA.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar Multihop.hostA.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar Multihop.hostA.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar Multihop.hostA.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar Multihop.hostA.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar Multihop.hostA.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar Multihop.hostA.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar Multihop.hostA.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar Multihop.hostA.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar Multihop.hostA.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar Multihop.hostA.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar Multihop.hostA.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar Multihop.hostA.udp packetReceived:count 5
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostA.udp packetReceived:sum(packetBytes) 156
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar Multihop.hostA.udp packetSent:count 21178
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar Multihop.hostA.udp packetSent:sum(packetBytes) 18287072
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Multihop.hostA.udp passedUpPk:count 5
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar Multihop.hostA.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar Multihop.hostA.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar Multihop.hostA.app[0] "packets sent" 20000
+scalar Multihop.hostA.app[0] "packets received" 0
+scalar Multihop.hostA.app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostA.app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic Multihop.hostA.app[0] rcvdPkLifetime:stats
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, stats"
+attr unit s
+scalar Multihop.hostA.app[0] packetSent:count 20000
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar Multihop.hostA.app[0] packetSent:sum(packetBytes) 18000000
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Multihop.hostA.app[1] "packets sent" 1176
+scalar Multihop.hostA.app[1] "packets received" 0
+scalar Multihop.hostA.app[1] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostA.app[1] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic Multihop.hostA.app[1] rcvdPkLifetime:stats
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, stats"
+attr unit s
+scalar Multihop.hostA.app[1] packetSent:count 1176
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar Multihop.hostA.app[1] packetSent:sum(packetBytes) 117600
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Multihop.hostB.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Multihop.hostB.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Multihop.hostB.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Multihop.hostB.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Multihop.hostB.wlan[0].mac.queue packetPopped:count 1
+attr interpolationmode none
+attr title "packet popped, count"
+scalar Multihop.hostB.wlan[0].mac.queue packetPopped:sum(packetBytes) 69
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic Multihop.hostB.wlan[0].mac.queue queueingTime:histogram
+field count 1
+field mean 0
+field stddev nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar Multihop.hostB.wlan[0].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar Multihop.hostB.wlan[0].mac.queue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar Multihop.hostB.wlan[0].mac.queue packetPushed:count 1
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar Multihop.hostB.wlan[0].mac.queue packetPushed:sum(packetBytes) 69
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar Multihop.hostB.wlan[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Multihop.hostB.wlan[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Multihop.hostB.wlan[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar Multihop.hostB.wlan[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar Multihop.hostB.wlan[0].mac numRetry 1
+scalar Multihop.hostB.wlan[0].mac numSentWithoutRetry 0
+scalar Multihop.hostB.wlan[0].mac numGivenUp 0
+scalar Multihop.hostB.wlan[0].mac numCollision 0
+scalar Multihop.hostB.wlan[0].mac numSent 1
+scalar Multihop.hostB.wlan[0].mac numReceived 813
+scalar Multihop.hostB.wlan[0].mac numSentBroadcast 0
+scalar Multihop.hostB.wlan[0].mac numReceivedBroadcast 1
+scalar Multihop.hostB.wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar Multihop.hostB.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar Multihop.hostB.wlan[0].mac packetDropNotAddressedToUs:count 1
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar Multihop.hostB.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 69
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar Multihop.hostB.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, count"
+scalar Multihop.hostB.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, sum(packetBytes)"
+scalar Multihop.hostB.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, count"
+scalar Multihop.hostB.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, sum(packetBytes)"
+scalar Multihop.hostB.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+statistic Multihop.hostB.wlan[0].radio minSnir:histogram
+field count 1438
+field mean 9.7704805212489
+field stddev 0.091545457500334
+field min 9.1227000975209
+field max 9.7855635951641
+field sum 14049.950989556
+field sqrsum 137286.81534818
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	9.1226	2
+bin	9.1338	27
+bin	9.145	0
+bin	9.1562	0
+bin	9.1674	0
+bin	9.1786	0
+bin	9.1898	0
+bin	9.201	0
+bin	9.2122	0
+bin	9.2234	0
+bin	9.2346	0
+bin	9.2458	0
+bin	9.257	0
+bin	9.2682	0
+bin	9.2794	0
+bin	9.2906	0
+bin	9.3018	0
+bin	9.313	0
+bin	9.3242	0
+bin	9.3354	0
+bin	9.3466	0
+bin	9.3578	0
+bin	9.369	0
+bin	9.3802	0
+bin	9.3914	0
+bin	9.4026	0
+bin	9.4138	0
+bin	9.425	0
+bin	9.4362	0
+bin	9.4474	0
+bin	9.4586	0
+bin	9.4698	0
+bin	9.481	0
+bin	9.4922	0
+bin	9.5034	0
+bin	9.5146	0
+bin	9.5258	0
+bin	9.537	0
+bin	9.5482	0
+bin	9.5594	0
+bin	9.5706	0
+bin	9.5818	0
+bin	9.593	0
+bin	9.6042	0
+bin	9.6154	0
+bin	9.6266	0
+bin	9.6378	0
+bin	9.649	0
+bin	9.6602	0
+bin	9.6714	0
+bin	9.6826	0
+bin	9.6938	0
+bin	9.705	0
+bin	9.7162	0
+bin	9.7274	0
+bin	9.7386	0
+bin	9.7498	0
+bin	9.761	0
+bin	9.7722	210
+bin	9.7834	1199
+bin	9.7946	0
+statistic Multihop.hostB.wlan[0].radio packetErrorRate:histogram
+field count 1438
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1438
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic Multihop.hostB.wlan[0].radio bitErrorRate:histogram
+field count 1438
+field mean 3.4510876621857e-23
+field stddev 8.2137982808054e-23
+field min 2.2501202176478e-23
+field max 6.4050145658654e-22
+field sum 4.9626640582231e-20
+field sqrsum 1.1407592362109e-41
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	2e-23	1409
+bin	3e-23	0
+bin	4e-23	0
+bin	5e-23	0
+bin	6e-23	0
+bin	7e-23	0
+bin	8e-23	0
+bin	9e-23	0
+bin	1e-22	0
+bin	1.1e-22	0
+bin	1.2e-22	0
+bin	1.3e-22	0
+bin	1.4e-22	0
+bin	1.5e-22	0
+bin	1.6e-22	0
+bin	1.7e-22	0
+bin	1.8e-22	0
+bin	1.9e-22	0
+bin	2e-22	0
+bin	2.1e-22	0
+bin	2.2e-22	0
+bin	2.3e-22	0
+bin	2.4e-22	0
+bin	2.5e-22	0
+bin	2.6e-22	0
+bin	2.7e-22	0
+bin	2.8e-22	0
+bin	2.9e-22	0
+bin	3e-22	0
+bin	3.1e-22	0
+bin	3.2e-22	0
+bin	3.3e-22	0
+bin	3.4e-22	0
+bin	3.5e-22	0
+bin	3.6e-22	0
+bin	3.7e-22	0
+bin	3.8e-22	0
+bin	3.9e-22	0
+bin	4e-22	0
+bin	4.1e-22	0
+bin	4.2e-22	0
+bin	4.3e-22	0
+bin	4.4e-22	0
+bin	4.5e-22	0
+bin	4.6e-22	0
+bin	4.7e-22	0
+bin	4.8e-22	0
+bin	4.9e-22	0
+bin	5e-22	0
+bin	5.1e-22	0
+bin	5.2e-22	0
+bin	5.3e-22	0
+bin	5.4e-22	0
+bin	5.5e-22	0
+bin	5.6e-22	0
+bin	5.7e-22	0
+bin	5.8e-22	0
+bin	5.9e-22	0
+bin	6e-22	27
+bin	6.1e-22	0
+bin	6.2e-22	0
+bin	6.3e-22	0
+bin	6.4e-22	2
+bin	6.5e-22	0
+statistic Multihop.hostB.wlan[0].radio symbolErrorRate:histogram
+field count 1438
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1438
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar Multihop.hostB.wlan[0].radio transmissionState:count 3260
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Multihop.hostB.wlan[0].radio receptionState:count 4509
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Multihop.hostB.wlan[0].radio radioMode:count 1633
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar Multihop.hostB.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar Multihop.hostB.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar Multihop.hostB.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar Multihop.hostB.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar Multihop.hostB.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar Multihop.hostB.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar Multihop.hostB.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar Multihop.hostB.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar Multihop.hostB.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar Multihop.hostB.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar Multihop.hostB.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar Multihop.hostB.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar Multihop.hostB.udp packetReceived:count 814
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostB.udp packetReceived:sum(packetBytes) 707036
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar Multihop.hostB.udp packetSent:count 1
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar Multihop.hostB.udp packetSent:sum(packetBytes) 28
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Multihop.hostB.udp passedUpPk:count 814
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar Multihop.hostB.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar Multihop.hostB.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar Multihop.hostB.app[0] packetReceived:count 813
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostB.app[0] packetReceived:sum(packetBytes) 700500
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic Multihop.hostB.app[0] endToEndDelay:histogram
+field count 813
+field mean 10.361351120583
+field stddev 5.4990690716551
+field min 0.364125839246
+field max 19.426935884422
+field sum 8423.7784610341
+field sqrsum 111836.41204851
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	0	5
+bin	0.5	12
+bin	1	24
+bin	1.5	30
+bin	2	22
+bin	2.5	16
+bin	3	19
+bin	3.5	7
+bin	4	32
+bin	4.5	25
+bin	5	20
+bin	5.5	16
+bin	6	15
+bin	6.5	14
+bin	7	11
+bin	7.5	18
+bin	8	15
+bin	8.5	13
+bin	9	24
+bin	9.5	21
+bin	10	21
+bin	10.5	31
+bin	11	32
+bin	11.5	24
+bin	12	27
+bin	12.5	8
+bin	13	24
+bin	13.5	25
+bin	14	27
+bin	14.5	27
+bin	15	16
+bin	15.5	34
+bin	16	52
+bin	16.5	9
+bin	17	10
+bin	17.5	23
+bin	18	22
+bin	18.5	21
+bin	19	21
+bin	19.5	0
+bin	20	0
+bin	20.5	0
+bin	21	0
+bin	21.5	0
+bin	22	0
+bin	22.5	0
+bin	23	0
+bin	23.5	0
+bin	24	0
+bin	24.5	0
+scalar Multihop.hostC.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Multihop.hostC.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Multihop.hostC.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Multihop.hostC.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Multihop.hostC.wlan[0].mac.queue packetPopped:count 2
+attr interpolationmode none
+attr title "packet popped, count"
+scalar Multihop.hostC.wlan[0].mac.queue packetPopped:sum(packetBytes) 146
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic Multihop.hostC.wlan[0].mac.queue queueingTime:histogram
+field count 2
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	2
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar Multihop.hostC.wlan[0].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar Multihop.hostC.wlan[0].mac.queue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar Multihop.hostC.wlan[0].mac.queue packetPushed:count 2
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar Multihop.hostC.wlan[0].mac.queue packetPushed:sum(packetBytes) 146
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar Multihop.hostC.wlan[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Multihop.hostC.wlan[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Multihop.hostC.wlan[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar Multihop.hostC.wlan[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar Multihop.hostC.wlan[0].mac numRetry 0
+scalar Multihop.hostC.wlan[0].mac numSentWithoutRetry 0
+scalar Multihop.hostC.wlan[0].mac numGivenUp 0
+scalar Multihop.hostC.wlan[0].mac numCollision 65
+scalar Multihop.hostC.wlan[0].mac numSent 0
+scalar Multihop.hostC.wlan[0].mac numReceived 0
+scalar Multihop.hostC.wlan[0].mac numSentBroadcast 2
+scalar Multihop.hostC.wlan[0].mac numReceivedBroadcast 5
+scalar Multihop.hostC.wlan[0].mac packetDropIncorrectlyReceived:count 65
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar Multihop.hostC.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 59154
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar Multihop.hostC.wlan[0].mac packetDropNotAddressedToUs:count 2275
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar Multihop.hostC.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 2055615
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar Multihop.hostC.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, count"
+scalar Multihop.hostC.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, sum(packetBytes)"
+scalar Multihop.hostC.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, count"
+scalar Multihop.hostC.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, sum(packetBytes)"
+scalar Multihop.hostC.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+statistic Multihop.hostC.wlan[0].radio minSnir:histogram
+field count 3690
+field mean 1918.6229688233
+field stddev 1621.9657684124
+field min 0.00051241850566221
+field max 4391.5383156971
+field sum 7079718.7549581
+field sqrsum 23288232443.016
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	1264
+bin	100	0
+bin	200	0
+bin	300	0
+bin	400	0
+bin	500	14
+bin	600	0
+bin	700	0
+bin	800	0
+bin	900	184
+bin	1000	0
+bin	1100	0
+bin	1200	0
+bin	1300	0
+bin	1400	0
+bin	1500	0
+bin	1600	0
+bin	1700	0
+bin	1800	0
+bin	1900	0
+bin	2000	0
+bin	2100	0
+bin	2200	0
+bin	2300	0
+bin	2400	1504
+bin	2500	0
+bin	2600	0
+bin	2700	0
+bin	2800	0
+bin	2900	0
+bin	3000	0
+bin	3100	0
+bin	3200	0
+bin	3300	0
+bin	3400	0
+bin	3500	0
+bin	3600	0
+bin	3700	0
+bin	3800	0
+bin	3900	0
+bin	4000	0
+bin	4100	0
+bin	4200	0
+bin	4300	724
+bin	4400	0
+bin	4500	0
+bin	4600	0
+bin	4700	0
+bin	4800	0
+bin	4900	0
+bin	5000	0
+bin	5100	0
+bin	5200	0
+bin	5300	0
+bin	5400	0
+bin	5500	0
+statistic Multihop.hostC.wlan[0].radio packetErrorRate:histogram
+field count 3690
+field mean 0.017615213559268
+field stddev 0.13155261256738
+field min 0
+field max 1
+field sum 65.000138033697
+field sqrsum 64.98715685546
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	3625
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+bin	0.52	0
+bin	0.54	0
+bin	0.56	0
+bin	0.58	0
+bin	0.6	0
+bin	0.62	0
+bin	0.64	0
+bin	0.66	0
+bin	0.68	0
+bin	0.7	0
+bin	0.72	0
+bin	0.74	0
+bin	0.76	0
+bin	0.78	0
+bin	0.8	0
+bin	0.82	0
+bin	0.84	0
+bin	0.86	0
+bin	0.88	0
+bin	0.9	0
+bin	0.92	0
+bin	0.94	0
+bin	0.96	0
+bin	0.98	28
+bin	1	37
+bin	1.02	0
+bin	1.04	0
+bin	1.06	0
+bin	1.08	0
+bin	1.1	0
+bin	1.12	0
+bin	1.14	0
+bin	1.16	0
+bin	1.18	0
+bin	1.2	0
+bin	1.22	0
+bin	1.24	0
+bin	1.26	0
+statistic Multihop.hostC.wlan[0].radio bitErrorRate:histogram
+field count 3690
+field mean 0.0046467781456462
+field stddev 0.045877712193203
+field min 0
+field max 0.47146672024699
+field sum 17.146611357434
+field sqrsum 7.8441526511956
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	3653
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	13
+bin	0.46	23
+bin	0.47	1
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+bin	0.52	0
+bin	0.53	0
+bin	0.54	0
+bin	0.55	0
+bin	0.56	0
+bin	0.57	0
+bin	0.58	0
+bin	0.59	0
+statistic Multihop.hostC.wlan[0].radio symbolErrorRate:histogram
+field count 3690
+field mean 0.007167769664952
+field stddev 0.070627424590678
+field min 0
+field max 0.72065257219352
+field sum 26.449070063673
+field sqrsum 18.591172763875
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	3653
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+bin	0.52	0
+bin	0.53	0
+bin	0.54	0
+bin	0.55	0
+bin	0.56	0
+bin	0.57	0
+bin	0.58	0
+bin	0.59	0
+bin	0.6	0
+bin	0.61	0
+bin	0.62	0
+bin	0.63	0
+bin	0.64	0
+bin	0.65	0
+bin	0.66	0
+bin	0.67	0
+bin	0.68	0
+bin	0.69	0
+bin	0.7	13
+bin	0.71	23
+bin	0.72	1
+bin	0.73	0
+bin	0.74	0
+bin	0.75	0
+bin	0.76	0
+bin	0.77	0
+bin	0.78	0
+bin	0.79	0
+bin	0.8	0
+bin	0.81	0
+bin	0.82	0
+bin	0.83	0
+bin	0.84	0
+bin	0.85	0
+bin	0.86	0
+bin	0.87	0
+bin	0.88	0
+bin	0.89	0
+bin	0.9	0
+scalar Multihop.hostC.wlan[0].radio transmissionState:count 8
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Multihop.hostC.wlan[0].radio receptionState:count 7414
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Multihop.hostC.wlan[0].radio radioMode:count 7
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar Multihop.hostC.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar Multihop.hostC.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar Multihop.hostC.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar Multihop.hostC.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar Multihop.hostC.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar Multihop.hostC.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar Multihop.hostC.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar Multihop.hostC.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar Multihop.hostC.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar Multihop.hostC.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar Multihop.hostC.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar Multihop.hostC.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar Multihop.hostC.udp packetReceived:count 5
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostC.udp packetReceived:sum(packetBytes) 160
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar Multihop.hostC.udp packetSent:count 2
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar Multihop.hostC.udp packetSent:sum(packetBytes) 64
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Multihop.hostC.udp passedUpPk:count 5
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar Multihop.hostC.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar Multihop.hostC.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar Multihop.hostD.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Multihop.hostD.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Multihop.hostD.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Multihop.hostD.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Multihop.hostD.wlan[0].mac.queue packetPopped:count 626
+attr interpolationmode none
+attr title "packet popped, count"
+scalar Multihop.hostD.wlan[0].mac.queue packetPopped:sum(packetBytes) 564242
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic Multihop.hostD.wlan[0].mac.queue queueingTime:histogram
+field count 626
+field mean 0.99927794737856
+field stddev 0.64763252427675
+field min 0
+field max 2.712803964104
+field sum 625.54799505898
+field sqrsum 887.23874555248
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	31
+bin	0.04	16
+bin	0.08	13
+bin	0.12	17
+bin	0.16	4
+bin	0.2	7
+bin	0.24	3
+bin	0.28	1
+bin	0.32	5
+bin	0.36	11
+bin	0.4	4
+bin	0.44	3
+bin	0.48	9
+bin	0.52	22
+bin	0.56	19
+bin	0.6	34
+bin	0.64	16
+bin	0.68	12
+bin	0.72	14
+bin	0.76	14
+bin	0.8	22
+bin	0.84	17
+bin	0.88	19
+bin	0.92	14
+bin	0.96	12
+bin	1	21
+bin	1.04	16
+bin	1.08	20
+bin	1.12	8
+bin	1.16	23
+bin	1.2	30
+bin	1.24	9
+bin	1.28	8
+bin	1.32	13
+bin	1.36	11
+bin	1.4	13
+bin	1.44	12
+bin	1.48	10
+bin	1.52	1
+bin	1.56	0
+bin	1.6	0
+bin	1.64	0
+bin	1.68	0
+bin	1.72	0
+bin	1.76	0
+bin	1.8	2
+bin	1.84	3
+bin	1.88	2
+bin	1.92	4
+bin	1.96	6
+bin	2	8
+bin	2.04	3
+bin	2.08	4
+bin	2.12	5
+bin	2.16	5
+bin	2.2	5
+bin	2.24	8
+bin	2.28	5
+bin	2.32	8
+bin	2.36	3
+bin	2.4	6
+bin	2.44	4
+bin	2.48	3
+bin	2.52	1
+bin	2.56	2
+bin	2.6	2
+bin	2.64	1
+bin	2.68	2
+bin	2.72	0
+scalar Multihop.hostD.wlan[0].mac.queue queueLength:max 126
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar Multihop.hostD.wlan[0].mac.queue queueLength:timeavg 39.160451951528
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar Multihop.hostD.wlan[0].mac.queue packetPushed:count 724
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar Multihop.hostD.wlan[0].mac.queue packetPushed:sum(packetBytes) 652444
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar Multihop.hostD.wlan[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Multihop.hostD.wlan[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Multihop.hostD.wlan[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar Multihop.hostD.wlan[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar Multihop.hostD.wlan[0].mac numRetry 213
+scalar Multihop.hostD.wlan[0].mac numSentWithoutRetry 468
+scalar Multihop.hostD.wlan[0].mac numGivenUp 0
+scalar Multihop.hostD.wlan[0].mac numCollision 184
+scalar Multihop.hostD.wlan[0].mac numSent 623
+scalar Multihop.hostD.wlan[0].mac numReceived 722
+scalar Multihop.hostD.wlan[0].mac numSentBroadcast 2
+scalar Multihop.hostD.wlan[0].mac numReceivedBroadcast 6
+scalar Multihop.hostD.wlan[0].mac packetDropIncorrectlyReceived:count 184
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar Multihop.hostD.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 169016
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar Multihop.hostD.wlan[0].mac packetDropNotAddressedToUs:count 597
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar Multihop.hostD.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 542553
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar Multihop.hostD.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, count"
+scalar Multihop.hostD.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, sum(packetBytes)"
+scalar Multihop.hostD.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, count"
+scalar Multihop.hostD.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, sum(packetBytes)"
+scalar Multihop.hostD.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+statistic Multihop.hostD.wlan[0].radio minSnir:histogram
+field count 2133
+field mean 1664.7760146434
+field stddev 940.95579665833
+field min 0.32639847996626
+field max 2470.2403025796
+field sum 3550967.2392343
+field sqrsum 7799233222.2785
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	207
+bin	50	0
+bin	100	0
+bin	150	0
+bin	200	0
+bin	250	0
+bin	300	0
+bin	350	0
+bin	400	0
+bin	450	0
+bin	500	0
+bin	550	1
+bin	600	0
+bin	650	0
+bin	700	0
+bin	750	9
+bin	800	715
+bin	850	0
+bin	900	0
+bin	950	0
+bin	1000	0
+bin	1050	0
+bin	1100	0
+bin	1150	0
+bin	1200	0
+bin	1250	0
+bin	1300	0
+bin	1350	0
+bin	1400	0
+bin	1450	0
+bin	1500	0
+bin	1550	0
+bin	1600	0
+bin	1650	0
+bin	1700	0
+bin	1750	0
+bin	1800	0
+bin	1850	0
+bin	1900	0
+bin	1950	0
+bin	2000	0
+bin	2050	0
+bin	2100	0
+bin	2150	0
+bin	2200	0
+bin	2250	0
+bin	2300	0
+bin	2350	0
+bin	2400	0
+bin	2450	1201
+bin	2500	0
+bin	2550	0
+bin	2600	0
+bin	2650	0
+bin	2700	0
+bin	2750	0
+bin	2800	0
+bin	2850	0
+bin	2900	0
+bin	2950	0
+bin	3000	0
+bin	3050	0
+bin	3100	0
+statistic Multihop.hostD.wlan[0].radio packetErrorRate:histogram
+field count 2133
+field mean 0.086264692590068
+field stddev 0.28081818404773
+field min 0
+field max 1
+field sum 184.00258929462
+field sqrsum 184.00000031394
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	1949
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+bin	0.52	0
+bin	0.54	0
+bin	0.56	0
+bin	0.58	0
+bin	0.6	0
+bin	0.62	0
+bin	0.64	0
+bin	0.66	0
+bin	0.68	0
+bin	0.7	0
+bin	0.72	0
+bin	0.74	0
+bin	0.76	0
+bin	0.78	0
+bin	0.8	0
+bin	0.82	0
+bin	0.84	0
+bin	0.86	0
+bin	0.88	0
+bin	0.9	0
+bin	0.92	0
+bin	0.94	0
+bin	0.96	0
+bin	0.98	0
+bin	1	184
+bin	1.02	0
+bin	1.04	0
+bin	1.06	0
+bin	1.08	0
+bin	1.1	0
+bin	1.12	0
+bin	1.14	0
+bin	1.16	0
+bin	1.18	0
+bin	1.2	0
+bin	1.22	0
+bin	1.24	0
+bin	1.26	0
+statistic Multihop.hostD.wlan[0].radio bitErrorRate:histogram
+field count 2133
+field mean 0.0030544537995688
+field stddev 0.009943341821429
+field min 0
+field max 0.035408421670576
+field sum 6.5151499544803
+field sqrsum 0.23069116383705
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	1949
+bin	0.0005	0
+bin	0.001	0
+bin	0.0015	0
+bin	0.002	0
+bin	0.0025	0
+bin	0.003	0
+bin	0.0035	0
+bin	0.004	0
+bin	0.0045	0
+bin	0.005	0
+bin	0.0055	0
+bin	0.006	0
+bin	0.0065	0
+bin	0.007	0
+bin	0.0075	0
+bin	0.008	0
+bin	0.0085	0
+bin	0.009	0
+bin	0.0095	0
+bin	0.01	0
+bin	0.0105	0
+bin	0.011	0
+bin	0.0115	0
+bin	0.012	0
+bin	0.0125	0
+bin	0.013	0
+bin	0.0135	0
+bin	0.014	0
+bin	0.0145	0
+bin	0.015	0
+bin	0.0155	0
+bin	0.016	0
+bin	0.0165	0
+bin	0.017	0
+bin	0.0175	0
+bin	0.018	0
+bin	0.0185	0
+bin	0.019	0
+bin	0.0195	0
+bin	0.02	0
+bin	0.0205	0
+bin	0.021	0
+bin	0.0215	0
+bin	0.022	0
+bin	0.0225	0
+bin	0.023	0
+bin	0.0235	0
+bin	0.024	0
+bin	0.0245	0
+bin	0.025	0
+bin	0.0255	0
+bin	0.026	0
+bin	0.0265	0
+bin	0.027	0
+bin	0.0275	0
+bin	0.028	0
+bin	0.0285	0
+bin	0.029	0
+bin	0.0295	0
+bin	0.03	0
+bin	0.0305	0
+bin	0.031	0
+bin	0.0315	0
+bin	0.032	0
+bin	0.0325	0
+bin	0.033	0
+bin	0.0335	0
+bin	0.034	0
+bin	0.0345	0
+bin	0.035	184
+bin	0.0355	0
+bin	0.036	0
+bin	0.0365	0
+bin	0.037	0
+bin	0.0375	0
+bin	0.038	0
+bin	0.0385	0
+bin	0.039	0
+bin	0.0395	0
+bin	0.04	0
+bin	0.0405	0
+bin	0.041	0
+bin	0.0415	0
+bin	0.042	0
+bin	0.0425	0
+bin	0.043	0
+bin	0.0435	0
+bin	0.044	0
+bin	0.0445	0
+statistic Multihop.hostD.wlan[0].radio symbolErrorRate:histogram
+field count 2133
+field mean 0.0060007542171231
+field stddev 0.019534605600957
+field min 0
+field max 0.069563087015951
+field sum 12.799608745124
+field sqrsum 0.89038024583475
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	1949
+bin	0.001	0
+bin	0.002	0
+bin	0.003	0
+bin	0.004	0
+bin	0.005	0
+bin	0.006	0
+bin	0.007	0
+bin	0.008	0
+bin	0.009	0
+bin	0.01	0
+bin	0.011	0
+bin	0.012	0
+bin	0.013	0
+bin	0.014	0
+bin	0.015	0
+bin	0.016	0
+bin	0.017	0
+bin	0.018	0
+bin	0.019	0
+bin	0.02	0
+bin	0.021	0
+bin	0.022	0
+bin	0.023	0
+bin	0.024	0
+bin	0.025	0
+bin	0.026	0
+bin	0.027	0
+bin	0.028	0
+bin	0.029	0
+bin	0.03	0
+bin	0.031	0
+bin	0.032	0
+bin	0.033	0
+bin	0.034	0
+bin	0.035	0
+bin	0.036	0
+bin	0.037	0
+bin	0.038	0
+bin	0.039	0
+bin	0.04	0
+bin	0.041	0
+bin	0.042	0
+bin	0.043	0
+bin	0.044	0
+bin	0.045	0
+bin	0.046	0
+bin	0.047	0
+bin	0.048	0
+bin	0.049	0
+bin	0.05	0
+bin	0.051	0
+bin	0.052	0
+bin	0.053	0
+bin	0.054	0
+bin	0.055	0
+bin	0.056	0
+bin	0.057	0
+bin	0.058	0
+bin	0.059	0
+bin	0.06	0
+bin	0.061	0
+bin	0.062	0
+bin	0.063	0
+bin	0.064	0
+bin	0.065	0
+bin	0.066	0
+bin	0.067	0
+bin	0.068	0
+bin	0.069	184
+bin	0.07	0
+bin	0.071	0
+bin	0.072	0
+bin	0.073	0
+bin	0.074	0
+bin	0.075	0
+bin	0.076	0
+bin	0.077	0
+bin	0.078	0
+bin	0.079	0
+bin	0.08	0
+bin	0.081	0
+bin	0.082	0
+bin	0.083	0
+bin	0.084	0
+bin	0.085	0
+bin	0.086	0
+bin	0.087	0
+scalar Multihop.hostD.wlan[0].radio transmissionState:count 6240
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Multihop.hostD.wlan[0].radio receptionState:count 7551
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Multihop.hostD.wlan[0].radio radioMode:count 3123
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar Multihop.hostD.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar Multihop.hostD.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar Multihop.hostD.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar Multihop.hostD.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar Multihop.hostD.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar Multihop.hostD.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar Multihop.hostD.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar Multihop.hostD.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar Multihop.hostD.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar Multihop.hostD.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar Multihop.hostD.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar Multihop.hostD.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar Multihop.hostD.udp packetReceived:count 7
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostD.udp packetReceived:sum(packetBytes) 220
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar Multihop.hostD.udp packetSent:count 3
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar Multihop.hostD.udp packetSent:sum(packetBytes) 92
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Multihop.hostD.udp passedUpPk:count 7
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar Multihop.hostD.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar Multihop.hostD.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar Multihop.hostE.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Multihop.hostE.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Multihop.hostE.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Multihop.hostE.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Multihop.hostE.wlan[0].mac.queue packetPopped:count 0
+attr interpolationmode none
+attr title "packet popped, count"
+scalar Multihop.hostE.wlan[0].mac.queue packetPopped:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic Multihop.hostE.wlan[0].mac.queue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar Multihop.hostE.wlan[0].mac.queue queueLength:max nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar Multihop.hostE.wlan[0].mac.queue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar Multihop.hostE.wlan[0].mac.queue packetPushed:count 0
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar Multihop.hostE.wlan[0].mac.queue packetPushed:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar Multihop.hostE.wlan[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Multihop.hostE.wlan[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Multihop.hostE.wlan[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar Multihop.hostE.wlan[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar Multihop.hostE.wlan[0].mac numRetry 0
+scalar Multihop.hostE.wlan[0].mac numSentWithoutRetry 0
+scalar Multihop.hostE.wlan[0].mac numGivenUp 0
+scalar Multihop.hostE.wlan[0].mac numCollision 0
+scalar Multihop.hostE.wlan[0].mac numSent 0
+scalar Multihop.hostE.wlan[0].mac numReceived 0
+scalar Multihop.hostE.wlan[0].mac numSentBroadcast 0
+scalar Multihop.hostE.wlan[0].mac numReceivedBroadcast 0
+scalar Multihop.hostE.wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar Multihop.hostE.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar Multihop.hostE.wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar Multihop.hostE.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar Multihop.hostE.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, count"
+scalar Multihop.hostE.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, sum(packetBytes)"
+scalar Multihop.hostE.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, count"
+scalar Multihop.hostE.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, sum(packetBytes)"
+scalar Multihop.hostE.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+statistic Multihop.hostE.wlan[0].radio minSnir:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic Multihop.hostE.wlan[0].radio packetErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic Multihop.hostE.wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic Multihop.hostE.wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar Multihop.hostE.wlan[0].radio transmissionState:count 0
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Multihop.hostE.wlan[0].radio receptionState:count 2
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Multihop.hostE.wlan[0].radio radioMode:count 4
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar Multihop.hostE.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar Multihop.hostE.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar Multihop.hostE.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar Multihop.hostE.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar Multihop.hostE.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar Multihop.hostE.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar Multihop.hostE.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar Multihop.hostE.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar Multihop.hostE.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar Multihop.hostE.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar Multihop.hostE.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar Multihop.hostE.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar Multihop.hostE.udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostE.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar Multihop.hostE.udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar Multihop.hostE.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Multihop.hostE.udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar Multihop.hostE.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar Multihop.hostE.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar Multihop.hostF.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Multihop.hostF.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Multihop.hostF.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Multihop.hostF.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Multihop.hostF.wlan[0].mac.queue packetPopped:count 605
+attr interpolationmode none
+attr title "packet popped, count"
+scalar Multihop.hostF.wlan[0].mac.queue packetPopped:sum(packetBytes) 545989
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic Multihop.hostF.wlan[0].mac.queue queueingTime:histogram
+field count 605
+field mean 1.3370106214785
+field stddev 0.96682417106126
+field min 0
+field max 2.781992502572
+field sum 808.89142599446
+field sqrsum 1646.0848107374
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	51
+bin	0.04	10
+bin	0.08	7
+bin	0.12	9
+bin	0.16	14
+bin	0.2	4
+bin	0.24	27
+bin	0.28	32
+bin	0.32	18
+bin	0.36	32
+bin	0.4	15
+bin	0.44	4
+bin	0.48	7
+bin	0.52	4
+bin	0.56	2
+bin	0.6	1
+bin	0.64	4
+bin	0.68	1
+bin	0.72	2
+bin	0.76	2
+bin	0.8	2
+bin	0.84	0
+bin	0.88	0
+bin	0.92	5
+bin	0.96	7
+bin	1	4
+bin	1.04	4
+bin	1.08	1
+bin	1.12	4
+bin	1.16	0
+bin	1.2	1
+bin	1.24	6
+bin	1.28	6
+bin	1.32	1
+bin	1.36	1
+bin	1.4	1
+bin	1.44	2
+bin	1.48	3
+bin	1.52	2
+bin	1.56	0
+bin	1.6	4
+bin	1.64	5
+bin	1.68	5
+bin	1.72	9
+bin	1.76	8
+bin	1.8	4
+bin	1.84	4
+bin	1.88	0
+bin	1.92	5
+bin	1.96	12
+bin	2	9
+bin	2.04	18
+bin	2.08	20
+bin	2.12	10
+bin	2.16	16
+bin	2.2	38
+bin	2.24	19
+bin	2.28	12
+bin	2.32	19
+bin	2.36	13
+bin	2.4	7
+bin	2.44	8
+bin	2.48	19
+bin	2.52	6
+bin	2.56	15
+bin	2.6	10
+bin	2.64	3
+bin	2.68	3
+bin	2.72	2
+bin	2.76	6
+bin	2.8	0
+scalar Multihop.hostF.wlan[0].mac.queue queueLength:max 95
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar Multihop.hostF.wlan[0].mac.queue queueLength:timeavg 41.404703690697
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar Multihop.hostF.wlan[0].mac.queue packetPushed:count 624
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar Multihop.hostF.wlan[0].mac.queue packetPushed:sum(packetBytes) 563220
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar Multihop.hostF.wlan[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Multihop.hostF.wlan[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Multihop.hostF.wlan[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar Multihop.hostF.wlan[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar Multihop.hostF.wlan[0].mac numRetry 211
+scalar Multihop.hostF.wlan[0].mac numSentWithoutRetry 446
+scalar Multihop.hostF.wlan[0].mac numGivenUp 0
+scalar Multihop.hostF.wlan[0].mac numCollision 715
+scalar Multihop.hostF.wlan[0].mac numSent 603
+scalar Multihop.hostF.wlan[0].mac numReceived 623
+scalar Multihop.hostF.wlan[0].mac numSentBroadcast 1
+scalar Multihop.hostF.wlan[0].mac numReceivedBroadcast 5
+scalar Multihop.hostF.wlan[0].mac packetDropIncorrectlyReceived:count 715
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar Multihop.hostF.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 643852
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar Multihop.hostF.wlan[0].mac packetDropNotAddressedToUs:count 1
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar Multihop.hostF.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 69
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar Multihop.hostF.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, count"
+scalar Multihop.hostF.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, sum(packetBytes)"
+scalar Multihop.hostF.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, count"
+scalar Multihop.hostF.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, sum(packetBytes)"
+scalar Multihop.hostF.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+statistic Multihop.hostF.wlan[0].radio minSnir:histogram
+field count 2879
+field mean 1153.9497070289
+field stddev 1227.4898586586
+field min 0.0039593883119034
+field max 2470.2403025796
+field sum 3322221.2065362
+field sqrsum 8170049022.2173
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	1531
+bin	50	0
+bin	100	0
+bin	150	0
+bin	200	1
+bin	250	0
+bin	300	0
+bin	350	0
+bin	400	0
+bin	450	0
+bin	500	0
+bin	550	0
+bin	600	0
+bin	650	0
+bin	700	0
+bin	750	0
+bin	800	0
+bin	850	0
+bin	900	0
+bin	950	0
+bin	1000	0
+bin	1050	0
+bin	1100	0
+bin	1150	0
+bin	1200	0
+bin	1250	0
+bin	1300	0
+bin	1350	0
+bin	1400	0
+bin	1450	0
+bin	1500	0
+bin	1550	0
+bin	1600	0
+bin	1650	0
+bin	1700	0
+bin	1750	0
+bin	1800	0
+bin	1850	0
+bin	1900	0
+bin	1950	23
+bin	2000	0
+bin	2050	0
+bin	2100	0
+bin	2150	0
+bin	2200	0
+bin	2250	0
+bin	2300	0
+bin	2350	0
+bin	2400	0
+bin	2450	1324
+bin	2500	0
+bin	2550	0
+bin	2600	0
+bin	2650	0
+bin	2700	0
+bin	2750	0
+bin	2800	0
+bin	2850	0
+bin	2900	0
+bin	2950	0
+bin	3000	0
+bin	3050	0
+bin	3100	0
+statistic Multihop.hostF.wlan[0].radio packetErrorRate:histogram
+field count 2879
+field mean 0.32163945779964
+field stddev 0.46718660883947
+field min 0
+field max 1
+field sum 925.99999900517
+field sqrsum 925.99999408684
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	1953
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+bin	0.52	0
+bin	0.54	0
+bin	0.56	0
+bin	0.58	0
+bin	0.6	0
+bin	0.62	0
+bin	0.64	0
+bin	0.66	0
+bin	0.68	0
+bin	0.7	0
+bin	0.72	0
+bin	0.74	0
+bin	0.76	0
+bin	0.78	0
+bin	0.8	0
+bin	0.82	0
+bin	0.84	0
+bin	0.86	0
+bin	0.88	0
+bin	0.9	0
+bin	0.92	0
+bin	0.94	0
+bin	0.96	0
+bin	0.98	1
+bin	1	925
+bin	1.02	0
+bin	1.04	0
+bin	1.06	0
+bin	1.08	0
+bin	1.1	0
+bin	1.12	0
+bin	1.14	0
+bin	1.16	0
+bin	1.18	0
+bin	1.2	0
+bin	1.22	0
+bin	1.24	0
+bin	1.26	0
+statistic Multihop.hostF.wlan[0].radio bitErrorRate:histogram
+field count 2879
+field mean 0.045610064674541
+field stddev 0.10861623574768
+field min 0
+field max 0.42113836649153
+field sum 131.311376198
+field sqrsum 39.942286991384
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	1953
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	715
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	211
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+bin	0.52	0
+bin	0.53	0
+statistic Multihop.hostF.wlan[0].radio symbolErrorRate:histogram
+field count 2879
+field mean 0.077346462453843
+field stddev 0.17241527681315
+field min 0
+field max 0.66491920925191
+field sum 222.68046540462
+field sqrsum 102.7779319155
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	1953
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	715
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+bin	0.52	0
+bin	0.53	0
+bin	0.54	0
+bin	0.55	0
+bin	0.56	0
+bin	0.57	0
+bin	0.58	0
+bin	0.59	0
+bin	0.6	0
+bin	0.61	0
+bin	0.62	0
+bin	0.63	0
+bin	0.64	0
+bin	0.65	0
+bin	0.66	211
+bin	0.67	0
+bin	0.68	0
+bin	0.69	0
+bin	0.7	0
+bin	0.71	0
+bin	0.72	0
+bin	0.73	0
+bin	0.74	0
+bin	0.75	0
+bin	0.76	0
+bin	0.77	0
+bin	0.78	0
+bin	0.79	0
+bin	0.8	0
+bin	0.81	0
+bin	0.82	0
+bin	0.83	0
+bin	0.84	0
+scalar Multihop.hostF.wlan[0].radio transmissionState:count 5754
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Multihop.hostF.wlan[0].radio receptionState:count 8847
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Multihop.hostF.wlan[0].radio radioMode:count 2880
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar Multihop.hostF.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar Multihop.hostF.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar Multihop.hostF.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar Multihop.hostF.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar Multihop.hostF.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar Multihop.hostF.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar Multihop.hostF.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar Multihop.hostF.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar Multihop.hostF.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar Multihop.hostF.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar Multihop.hostF.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar Multihop.hostF.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar Multihop.hostF.udp packetReceived:count 6
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostF.udp packetReceived:sum(packetBytes) 188
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar Multihop.hostF.udp packetSent:count 2
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar Multihop.hostF.udp packetSent:sum(packetBytes) 60
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Multihop.hostF.udp passedUpPk:count 6
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar Multihop.hostF.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar Multihop.hostF.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar Multihop.hostG.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Multihop.hostG.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Multihop.hostG.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Multihop.hostG.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Multihop.hostG.wlan[0].mac.queue packetPopped:count 0
+attr interpolationmode none
+attr title "packet popped, count"
+scalar Multihop.hostG.wlan[0].mac.queue packetPopped:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic Multihop.hostG.wlan[0].mac.queue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar Multihop.hostG.wlan[0].mac.queue queueLength:max nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar Multihop.hostG.wlan[0].mac.queue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar Multihop.hostG.wlan[0].mac.queue packetPushed:count 0
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar Multihop.hostG.wlan[0].mac.queue packetPushed:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar Multihop.hostG.wlan[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Multihop.hostG.wlan[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Multihop.hostG.wlan[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar Multihop.hostG.wlan[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar Multihop.hostG.wlan[0].mac numRetry 0
+scalar Multihop.hostG.wlan[0].mac numSentWithoutRetry 0
+scalar Multihop.hostG.wlan[0].mac numGivenUp 0
+scalar Multihop.hostG.wlan[0].mac numCollision 0
+scalar Multihop.hostG.wlan[0].mac numSent 0
+scalar Multihop.hostG.wlan[0].mac numReceived 0
+scalar Multihop.hostG.wlan[0].mac numSentBroadcast 0
+scalar Multihop.hostG.wlan[0].mac numReceivedBroadcast 0
+scalar Multihop.hostG.wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar Multihop.hostG.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar Multihop.hostG.wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar Multihop.hostG.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar Multihop.hostG.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, count"
+scalar Multihop.hostG.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, sum(packetBytes)"
+scalar Multihop.hostG.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, count"
+scalar Multihop.hostG.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, sum(packetBytes)"
+scalar Multihop.hostG.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+statistic Multihop.hostG.wlan[0].radio minSnir:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic Multihop.hostG.wlan[0].radio packetErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic Multihop.hostG.wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic Multihop.hostG.wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar Multihop.hostG.wlan[0].radio transmissionState:count 0
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Multihop.hostG.wlan[0].radio receptionState:count 2
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Multihop.hostG.wlan[0].radio radioMode:count 4
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar Multihop.hostG.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar Multihop.hostG.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar Multihop.hostG.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar Multihop.hostG.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar Multihop.hostG.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar Multihop.hostG.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar Multihop.hostG.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar Multihop.hostG.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar Multihop.hostG.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar Multihop.hostG.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar Multihop.hostG.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar Multihop.hostG.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar Multihop.hostG.udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostG.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar Multihop.hostG.udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar Multihop.hostG.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Multihop.hostG.udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar Multihop.hostG.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar Multihop.hostG.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar Multihop.hostH.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Multihop.hostH.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Multihop.hostH.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Multihop.hostH.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Multihop.hostH.wlan[0].mac.queue packetPopped:count 1
+attr interpolationmode none
+attr title "packet popped, count"
+scalar Multihop.hostH.wlan[0].mac.queue packetPopped:sum(packetBytes) 73
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic Multihop.hostH.wlan[0].mac.queue queueingTime:histogram
+field count 1
+field mean 0.00032614531
+field stddev nan
+field min 0.00032614531
+field max 0.00032614531
+field sum 0.00032614531
+field sqrsum 1.06370763235e-07
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+scalar Multihop.hostH.wlan[0].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar Multihop.hostH.wlan[0].mac.queue queueLength:timeavg 1.658153331949e-05
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar Multihop.hostH.wlan[0].mac.queue packetPushed:count 1
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar Multihop.hostH.wlan[0].mac.queue packetPushed:sum(packetBytes) 73
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar Multihop.hostH.wlan[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Multihop.hostH.wlan[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Multihop.hostH.wlan[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar Multihop.hostH.wlan[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar Multihop.hostH.wlan[0].mac numRetry 0
+scalar Multihop.hostH.wlan[0].mac numSentWithoutRetry 0
+scalar Multihop.hostH.wlan[0].mac numGivenUp 0
+scalar Multihop.hostH.wlan[0].mac numCollision 15
+scalar Multihop.hostH.wlan[0].mac numSent 0
+scalar Multihop.hostH.wlan[0].mac numReceived 0
+scalar Multihop.hostH.wlan[0].mac numSentBroadcast 1
+scalar Multihop.hostH.wlan[0].mac numReceivedBroadcast 3
+scalar Multihop.hostH.wlan[0].mac packetDropIncorrectlyReceived:count 15
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar Multihop.hostH.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 12635
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar Multihop.hostH.wlan[0].mac packetDropNotAddressedToUs:count 1423
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar Multihop.hostH.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 1290187
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar Multihop.hostH.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, count"
+scalar Multihop.hostH.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drop: queue overflow, sum(packetBytes)"
+scalar Multihop.hostH.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, count"
+scalar Multihop.hostH.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, sum(packetBytes)"
+scalar Multihop.hostH.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+statistic Multihop.hostH.wlan[0].radio minSnir:histogram
+field count 3586
+field mean 1936.7279533604
+field stddev 1413.9802211248
+field min 0.14059298548131
+field max 4391.5383156971
+field sum 6945106.4407503
+field sqrsum 20618415918.514
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	227
+bin	100	0
+bin	200	0
+bin	300	0
+bin	400	0
+bin	500	0
+bin	600	1347
+bin	700	0
+bin	800	0
+bin	900	0
+bin	1000	0
+bin	1100	0
+bin	1200	0
+bin	1300	0
+bin	1400	0
+bin	1500	0
+bin	1600	0
+bin	1700	0
+bin	1800	0
+bin	1900	0
+bin	2000	0
+bin	2100	0
+bin	2200	0
+bin	2300	0
+bin	2400	1409
+bin	2500	0
+bin	2600	0
+bin	2700	0
+bin	2800	0
+bin	2900	0
+bin	3000	0
+bin	3100	0
+bin	3200	0
+bin	3300	0
+bin	3400	0
+bin	3500	0
+bin	3600	0
+bin	3700	0
+bin	3800	0
+bin	3900	0
+bin	4000	0
+bin	4100	0
+bin	4200	0
+bin	4300	603
+bin	4400	0
+bin	4500	0
+bin	4600	0
+bin	4700	0
+bin	4800	0
+bin	4900	0
+bin	5000	0
+bin	5100	0
+bin	5200	0
+bin	5300	0
+bin	5400	0
+bin	5500	0
+statistic Multihop.hostH.wlan[0].radio packetErrorRate:histogram
+field count 3586
+field mean 0.0041829375540722
+field stddev 0.064549194969638
+field min 0
+field max 1
+field sum 15.000014068903
+field sqrsum 15.000000000014
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	3571
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+bin	0.52	0
+bin	0.54	0
+bin	0.56	0
+bin	0.58	0
+bin	0.6	0
+bin	0.62	0
+bin	0.64	0
+bin	0.66	0
+bin	0.68	0
+bin	0.7	0
+bin	0.72	0
+bin	0.74	0
+bin	0.76	0
+bin	0.78	0
+bin	0.8	0
+bin	0.82	0
+bin	0.84	0
+bin	0.86	0
+bin	0.88	0
+bin	0.9	0
+bin	0.92	0
+bin	0.94	0
+bin	0.96	0
+bin	0.98	0
+bin	1	15
+bin	1.02	0
+statistic Multihop.hostH.wlan[0].radio bitErrorRate:histogram
+field count 3586
+field mean 0.00035675381099909
+field stddev 0.0056313692498661
+field min 0
+field max 0.09247380378977
+field sum 1.2793191662427
+field sqrsum 0.11414506785563
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	3571
+bin	0.002	0
+bin	0.004	0
+bin	0.006	0
+bin	0.008	0
+bin	0.01	0
+bin	0.012	0
+bin	0.014	0
+bin	0.016	0
+bin	0.018	0
+bin	0.02	0
+bin	0.022	0
+bin	0.024	0
+bin	0.026	0
+bin	0.028	0
+bin	0.03	0
+bin	0.032	0
+bin	0.034	0
+bin	0.036	0
+bin	0.038	2
+bin	0.04	0
+bin	0.042	0
+bin	0.044	0
+bin	0.046	0
+bin	0.048	0
+bin	0.05	0
+bin	0.052	0
+bin	0.054	0
+bin	0.056	0
+bin	0.058	0
+bin	0.06	0
+bin	0.062	0
+bin	0.064	0
+bin	0.066	0
+bin	0.068	0
+bin	0.07	0
+bin	0.072	0
+bin	0.074	0
+bin	0.076	0
+bin	0.078	0
+bin	0.08	0
+bin	0.082	0
+bin	0.084	0
+bin	0.086	0
+bin	0.088	0
+bin	0.09	0
+bin	0.092	13
+bin	0.094	0
+statistic Multihop.hostH.wlan[0].radio symbolErrorRate:histogram
+field count 3586
+field mean 0.00068167687245673
+field stddev 0.010749966834844
+field min 0
+field max 0.17639620319219
+field sum 2.4444932646298
+field sqrsum 0.41595536073999
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	3571
+bin	0.02	0
+bin	0.04	0
+bin	0.06	2
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	13
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar Multihop.hostH.wlan[0].radio transmissionState:count 4
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Multihop.hostH.wlan[0].radio receptionState:count 7376
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Multihop.hostH.wlan[0].radio radioMode:count 5
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar Multihop.hostH.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar Multihop.hostH.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar Multihop.hostH.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar Multihop.hostH.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar Multihop.hostH.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar Multihop.hostH.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar Multihop.hostH.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar Multihop.hostH.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar Multihop.hostH.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar Multihop.hostH.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar Multihop.hostH.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar Multihop.hostH.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar Multihop.hostH.udp packetReceived:count 3
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar Multihop.hostH.udp packetReceived:sum(packetBytes) 96
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar Multihop.hostH.udp packetSent:count 1
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar Multihop.hostH.udp packetSent:sum(packetBytes) 32
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Multihop.hostH.udp passedUpPk:count 3
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar Multihop.hostH.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar Multihop.hostH.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+
