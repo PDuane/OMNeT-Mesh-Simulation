@@ -29,13 +29,14 @@ import inet.common.scenario.ScenarioManager;
 network Multihop
 {
     parameters:
-        @display("bgb=1000,800;bgg=100,1,grey95");
+        @display("bgb=770,1105;bgg=100,1,grey95");
         @figure[title](type=label; pos=0,-1; anchor=sw; color=darkblue);
 
-        @figure[rcvdPkText](type=indicatorText; pos=380,20; anchor=w; font=,18; textFormat="Host B packets received: %g"; initialValue=0);
-        @statistic[packetReceived](source=hostB.app[0].packetReceived; record=figure(count); targetFigure=rcvdPkText);
-        @statistic[logPacketReceived](source=hostB.app[0].packetReceived; record=vector(count));
-        @statistic[logPacketSent](source=hostA.app[0].packetSent; record=vector(count));
+//        @figure[rcvdPkText](type=indicatorText; pos=200,20; anchor=w; font=,14; textFormat="Host B packets received: %g"; initialValue=0);
+//        @statistic[packetReceived](source=hostB.app[0].packetReceived; record=figure(count); targetFigure=rcvdPkText);
+//        @statistic[logPacketReceived](source=hostB.app[0].packetReceived; record=vector(count));
+//        @statistic[logPacketSent](source=hostA.app[0].packetSent; record=vector(count));
+//        @statistic[hostRPosition](source=hostR.mobility.xPos; record=vector);
     submodules:
         visualizer: IntegratedCanvasVisualizer {
             @display("p=580,125");
@@ -53,27 +54,27 @@ network Multihop
             @display("p=660,125");
         }
         hostA: <default("WirelessHost")> like INetworkNode {
-            @display("p=50,325");
+            @display("p=152.5,487.5");
         }
-        hostB: <default("WirelessHost")> like INetworkNode {
-            @display("p=550,725");
-        }
-        hostC: <default("WirelessHost")> like INetworkNode {
-            @display("p=200,325");
-        }
-        hostD: <default("WirelessHost")> like INetworkNode {
-            @display("p=400,325");
-        }
-        hostE: <default("WirelessHost")> like INetworkNode {
-            @display("p=200,525");
-        }
-        hostF: <default("WirelessHost")> like INetworkNode {
-            @display("p=400,525");
-        }
-        hostG: <default("WirelessHost")> like INetworkNode {
-            @display("p=200,725");
-        }
-        hostH: <default("WirelessHost")> like INetworkNode {
-            @display("p=400,725");
+//        hostB: <default("WirelessHost")> like INetworkNode {
+//            @display("p=152.5,642.5");
+//        }
+//        hostC: <default("WirelessHost")> like INetworkNode {
+//            @display("p=307.5,642.5");
+//        }
+//        hostD: <default("WirelessHost")> like INetworkNode {
+//            @display("p=307.5,797.5");
+//        }
+//        hostE: <default("WirelessHost")> like INetworkNode {
+//            @display("p=462.5,797.5");
+//        }
+//        hostF: <default("WirelessHost")> like INetworkNode {
+//            @display("p=462.5,952.5");
+//        }
+//        hostG: <default("WirelessHost")> like INetworkNode {
+//            @display("p=617.5,952.5");
+//        }
+		hostR: <default("WirelessHost")> like INetworkNode {
+            @display("p=152.5,335");
         }
 }

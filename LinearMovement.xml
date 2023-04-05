@@ -1,0 +1,4 @@
+<movement>
+    <set x="0" y="952.5" z="0.1" speed="4.5" />
+    <moveto x="675" y="952.5" />
+</movement>
