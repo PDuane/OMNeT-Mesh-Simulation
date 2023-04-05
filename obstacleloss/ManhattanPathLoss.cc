@@ -26,6 +26,8 @@ using namespace inet::physicalenvironment;
 
 Define_Module(ManhattanPathLoss);
 
+    ManhattanPathLoss::ManhattanPathLoss() {}
+
     void ManhattanPathLoss::initialize(int stage)
     {
         if (stage == INITSTAGE_LOCAL) {
