@@ -1,172 +1,423 @@
-version 2
-run HeatmapGeneration-0-20230405-15:52:06-10840
+version 3
+run HeatmapGeneration-0-20230410-11:08:41-20312
 attr configname HeatmapGeneration
-attr datetime 20230405-15:52:06
+attr datetime 20230410-11:08:41
+attr datetimef 20230410-110841
 attr experiment HeatmapGeneration
 attr inifile omnetpp.ini
 attr iterationvars ""
+attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Multihop
-attr processid 10840
+attr processid 20312
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-param *.host*.wlan[0].radio.transmitter.power 10mW
-param *.hostR.mobility.turtleScript "xmldoc(\"HeatmapPath.xml\")"
-param *.radioMedium.pathloss.typename "\"ManhattanPathLoss\""
-param *.radioMedium.pathloss.typename "\"FreeSpacePathLoss\""
-param **.bitrate "100 Mbps"
-param *.host*.wlan[0].radio.receiver.modulation "\"QAM-16\""
-param *.host*.wlan[0].radio.transmitter.modulation "\"QAM-16\""
-param *.visualizer.routingTableVisualizer.displayRoutingTables true
-param *.visualizer.routingTableVisualizer.destinationFilter "\"hostA\""
-param *.hostA.numApps 1
-param *.hostA.app[0].typename "\"UdpSink\""
-param *.hostA.app[0].localPort 5001
-param *.hostR.numApps 1
-param *.hostR.app[0].typename "\"UdpBasicApp\""
-param *.hostR.app[0].destAddresses "\"hostA\""
-param *.hostR.app[0].destPort 5001
-param *.hostR.app[0].messageLength 1000B
-param *.hostR.app[0].sendInterval 0.002ms
-param *.hostR.app[1].packetName "\"StreamPacket\""
-param *.hostR.mobility.typename "\"TurtleMobility\""
-param *.hostR.mobility.turtleScript "xmldoc(\"LinearMovement.xml\")"
-param *.radioMedium.typename "\"ApskScalarRadioMedium\""
-param *.radioMedium.backgroundNoise.power -105dBm
-param *.radioMedium.mediumLimitCache.centerFrequency 2.4GHz
-param *.host*.wlan[0].radio.typename "\"ApskScalarRadio\""
-param *.host*.wlan[0].radio.centerFrequency 2.4GHz
-param *.host*.wlan[0].radio.bandwidth 10MHz
-param *.host*.wlan[0].radio.transmitter.modulation "\"QPSK\""
-param *.host*.wlan[0].radio.transmitter.power 1mW
-param *.host*.wlan[0].radio.transmitter.preambleDuration 10us
-param *.host*.wlan[0].radio.transmitter.headerLength 8B
-param *.host*.wlan[0].radio.receiver.modulation "\"QPSK\""
-param *.host*.wlan[0].radio.receiver.sensitivity -120dBm
-param *.host*.wlan[0].radio.receiver.energyDetection -100dBm
-param *.host*.wlan[0].radio.receiver.snirThreshold 4dB
-param *.physicalEnvironment.ground.typename "\"FlatGround\""
-param *.physicalEnvironment.ground.elevation 0m
-param *.host*.ipv4.arp.typename "\"GlobalArp\""
-param *.host*.forwarding true
-param *.configurator.optimizeRoutes false
-param *.host*.wlan[0].typename "\"WirelessInterface\""
-param *.host*.wlan[0].radio.typename "\"UnitDiskRadio\""
-param *.host*.wlan[0].radio.transmitter.communicationRange 300m
-param *.host*.wlan[0].radio.transmitter.interferenceRange 500m
-param *.host*.wlan[0].mac.typename "\"CsmaCaMac\""
-param *.host*.wlan[0].mac.ackTimeout 300us
-param *.host*.wlan[0].mac.useAck true
-param *.host*.wlan[0].queue.typename "\"DropTailQueue\""
-param *.host*.**.bitrate 1Mbps
-param *.hostA.wlan[0].radio.displayCommunicationRange true
-param *.hostC.wlan[0].radio.displayCommunicationRange true
-param *.configurator.addStaticRoutes false
-param *.host*.typename "\"AodvRouter\""
-param *.host*.mobility.typename "\"StationaryMobility\""
-param *.host*.mobility.initialZ 0.1m
-param *.physicalEnvironment.config "xmldoc(\"mine2.xml\")"
-param *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
-param *.visualizer.physicalLinkVisualizer.displayLinks true
+config image-path ../../images
+config description "Testing the throughput at diferent locations using a moving Node R"
+config extends ThroughputDistanceTest_Manhattan
+config sim-time-limit 1102.222222222222s
+config *.host*.wlan[0].radio.transmitter.power 10mW
+config *.hostR.mobility.turtleScript "xmldoc(\"HeatmapPath.xml\")"
+config description "Testing the throughput at diferent locations using a moving Node R"
+config extends MovingThroughputTest
+config *.radioMedium.pathloss.typename ManhattanPathLoss
+config description "Testing the throughput at diferent locations using a moving Node R"
+config extends RealisticChannelModel
+config sim-time-limit 183s
+config *.radioMedium.pathloss.typename FreeSpacePathLoss
+config **.bitrate "100 Mbps"
+config *.host*.wlan[0].radio.receiver.modulation "\"QAM-16\""
+config *.host*.wlan[0].radio.transmitter.modulation "\"QAM-16\""
+config *.visualizer.routingTableVisualizer.displayRoutingTables true
+config *.visualizer.routingTableVisualizer.destinationFilter "\"hostA\""
+config *.hostA.numApps 1
+config *.hostA.app[0].typename UdpSink
+config *.hostA.app[0].localPort 5001
+config *.hostR.numApps 1
+config *.hostR.app[0].typename UdpBasicApp
+config *.hostR.app[0].destAddresses "\"hostA\""
+config *.hostR.app[0].destPort 5001
+config *.hostR.app[0].messageLength 1000B
+config *.hostR.app[0].sendInterval 0.002ms
+config *.hostR.app[1].packetName "\"StreamPacket\""
+config *.hostR.mobility.typename TurtleMobility
+config *.hostR.mobility.turtleScript "xmldoc(\"LinearMovement.xml\")"
+config description "Changing to a realistic channel model from UnitDiskRadio"
+config extends BasicParameters
+config *.radioMedium.typename ApskScalarRadioMedium
+config *.radioMedium.backgroundNoise.power -105dBm
+config *.radioMedium.mediumLimitCache.centerFrequency 2.4GHz
+config *.host*.wlan[0].radio.typename ApskScalarRadio
+config *.host*.wlan[0].radio.centerFrequency 2.4GHz
+config *.host*.wlan[0].radio.bandwidth 10MHz
+config *.host*.wlan[0].radio.transmitter.modulation "\"QPSK\""
+config *.host*.wlan[0].radio.transmitter.power 1mW
+config *.host*.wlan[0].radio.transmitter.preambleDuration 10us
+config *.host*.wlan[0].radio.transmitter.headerLength 8B
+config *.host*.wlan[0].radio.receiver.modulation "\"QPSK\""
+config *.host*.wlan[0].radio.receiver.sensitivity -120dBm
+config *.host*.wlan[0].radio.receiver.energyDetection -100dBm
+config *.host*.wlan[0].radio.receiver.snirThreshold 4dB
+config *.physicalEnvironment.ground.typename FlatGround
+config *.physicalEnvironment.ground.elevation 0m
+config *.hostA.wlan[*].radio.bitErrorRate.result-recording-modes default,+vector
+config description "4 Node, 3 hop network using Ad-Hoc On-Demand Distance Vector (AODV) routing"
+config network Multihop
+config sim-time-limit 20s
+config **.hostR.wlan[*].radio.packetErrorRate:vector.vector-recording true
+config **.hostR.wlan[*].radio.packetErrorRate.result-recording-modes +vector
+config *.host*.ipv4.arp.typename GlobalArp
+config *.host*.forwarding true
+config *.configurator.optimizeRoutes false
+config *.host*.wlan[0].typename WirelessInterface
+config *.host*.wlan[0].radio.typename UnitDiskRadio
+config *.host*.wlan[0].radio.transmitter.communicationRange 300m
+config *.host*.wlan[0].radio.transmitter.interferenceRange 500m
+config *.host*.wlan[0].mac.typename CsmaCaMac
+config *.host*.wlan[0].mac.ackTimeout 300us
+config *.host*.wlan[0].mac.useAck true
+config *.host*.wlan[0].queue.typename DropTailQueue
+config *.host*.**.bitrate 1Mbps
+config *.hostA.wlan[0].radio.displayCommunicationRange true
+config *.hostC.wlan[0].radio.displayCommunicationRange true
+config *.configurator.addStaticRoutes false
+config *.host*.typename AodvRouter
+config *.host*.mobility.typename StationaryMobility
+config *.host*.mobility.initialZ 0.1m
+config *.physicalEnvironment.config "xmldoc(\"mine2.xml\")"
+config *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
+config *.visualizer.physicalLinkVisualizer.displayLinks true
 
-vector 0 Multihop.hostA.wlan[0].radio radioMode:vector ETV
+vector 0 Multihop.hostA.wlan[0].mac.queue queueLength:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length"
+vector 1 Multihop.hostA.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 2 Multihop.hostA.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 3 Multihop.hostA.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 4 Multihop.hostB.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length"
+vector 5 Multihop.hostB.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 6 Multihop.hostB.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 7 Multihop.hostB.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 8 Multihop.hostC.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length"
+vector 9 Multihop.hostC.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 10 Multihop.hostC.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 11 Multihop.hostC.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 12 Multihop.hostD.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length"
+vector 13 Multihop.hostD.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 14 Multihop.hostD.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 15 Multihop.hostD.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 16 Multihop.hostE.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length"
+vector 17 Multihop.hostE.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 18 Multihop.hostE.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 19 Multihop.hostE.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 20 Multihop.hostF.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length"
+vector 21 Multihop.hostF.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 22 Multihop.hostF.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 23 Multihop.hostF.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 24 Multihop.hostG.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length"
+vector 25 Multihop.hostG.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 26 Multihop.hostG.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 27 Multihop.hostG.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 28 Multihop.hostR.wlan[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length"
+vector 29 Multihop.hostR.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 30 Multihop.hostR.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 31 Multihop.hostR.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 32 Multihop.hostA.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
 attr source radioModeChanged
-attr title "Radio mode, vector"
-vector 1 Multihop.hostB.wlan[0].radio radioMode:vector ETV
+attr title "Radio mode"
+vector 33 Multihop.hostB.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source radioModeChanged
-attr title "Radio mode, vector"
-vector 2 Multihop.hostC.wlan[0].radio radioMode:vector ETV
+attr title "Radio mode"
+vector 34 Multihop.hostC.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source radioModeChanged
-attr title "Radio mode, vector"
-vector 3 Multihop.hostD.wlan[0].radio radioMode:vector ETV
+attr title "Radio mode"
+vector 35 Multihop.hostD.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source radioModeChanged
-attr title "Radio mode, vector"
-vector 4 Multihop.hostE.wlan[0].radio radioMode:vector ETV
+attr title "Radio mode"
+vector 36 Multihop.hostE.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source radioModeChanged
-attr title "Radio mode, vector"
-vector 5 Multihop.hostF.wlan[0].radio radioMode:vector ETV
+attr title "Radio mode"
+vector 37 Multihop.hostF.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source radioModeChanged
-attr title "Radio mode, vector"
-vector 6 Multihop.hostG.wlan[0].radio radioMode:vector ETV
+attr title "Radio mode"
+vector 38 Multihop.hostG.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source radioModeChanged
-attr title "Radio mode, vector"
-vector 7 Multihop.hostR.wlan[0].radio radioMode:vector ETV
+attr title "Radio mode"
+vector 39 Multihop.hostR.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source radioModeChanged
-attr title "Radio mode, vector"
-vector 8 Multihop.hostA.wlan[0].radio receptionState:vector ETV
+attr title "Radio mode"
+vector 40 Multihop.hostA.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source receptionStateChanged
-attr title "Radio reception state, vector"
-vector 9 Multihop.hostB.wlan[0].radio receptionState:vector ETV
+attr title "Radio reception state"
+vector 41 Multihop.hostB.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source receptionStateChanged
-attr title "Radio reception state, vector"
-vector 10 Multihop.hostC.wlan[0].radio receptionState:vector ETV
+attr title "Radio reception state"
+vector 42 Multihop.hostC.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source receptionStateChanged
-attr title "Radio reception state, vector"
-vector 11 Multihop.hostD.wlan[0].radio receptionState:vector ETV
+attr title "Radio reception state"
+vector 43 Multihop.hostD.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source receptionStateChanged
-attr title "Radio reception state, vector"
-vector 12 Multihop.hostE.wlan[0].radio receptionState:vector ETV
+attr title "Radio reception state"
+vector 44 Multihop.hostE.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source receptionStateChanged
-attr title "Radio reception state, vector"
-vector 13 Multihop.hostF.wlan[0].radio receptionState:vector ETV
+attr title "Radio reception state"
+vector 45 Multihop.hostF.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source receptionStateChanged
-attr title "Radio reception state, vector"
-vector 14 Multihop.hostG.wlan[0].radio receptionState:vector ETV
+attr title "Radio reception state"
+vector 46 Multihop.hostG.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source receptionStateChanged
-attr title "Radio reception state, vector"
-vector 15 Multihop.hostR.wlan[0].radio receptionState:vector ETV
+attr title "Radio reception state"
+vector 47 Multihop.hostR.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
+attr recordingmode vector
 attr source receptionStateChanged
-attr title "Radio reception state, vector"
+attr title "Radio reception state"
 0	0	0	0
 0	0	0	0
-0	0	0	2
+0	0	0	0
+0	0	0	0
 1	0	0	0
-1	0	0	0
-1	0	0	2
 2	0	0	0
-2	0	0	0
-2	0	0	2
 3	0	0	0
-3	0	0	0
-3	0	0	2
 4	0	0	0
 4	0	0	0
-4	0	0	2
+4	0	0	0
+4	0	0	0
 5	0	0	0
-5	0	0	0
-5	0	0	2
 6	0	0	0
-6	0	0	0
-6	0	0	2
 7	0	0	0
-7	0	0	0
-7	0	0	2
-8	0	0	1
-9	0	0	1
-10	0	0	1
-11	0	0	1
-12	0	0	1
-13	0	0	1
-14	0	0	1
-15	0	0	1
+8	0	0	0
+8	0	0	0
+8	0	0	0
+8	0	0	0
+9	0	0	0
+10	0	0	0
+11	0	0	0
+12	0	0	0
+12	0	0	0
+12	0	0	0
+12	0	0	0
+13	0	0	0
+14	0	0	0
+15	0	0	0
+16	0	0	0
+16	0	0	0
+16	0	0	0
+16	0	0	0
+17	0	0	0
+18	0	0	0
+19	0	0	0
+20	0	0	0
+20	0	0	0
+20	0	0	0
+20	0	0	0
+21	0	0	0
+22	0	0	0
+23	0	0	0
+24	0	0	0
+24	0	0	0
+24	0	0	0
+24	0	0	0
+25	0	0	0
+26	0	0	0
+27	0	0	0
+28	0	0	0
+28	0	0	0
+28	0	0	0
+28	0	0	0
+29	0	0	0
+30	0	0	0
+31	0	0	0
+32	0	0	0
+32	0	0	0
+32	0	0	2
+33	0	0	0
+33	0	0	0
+33	0	0	2
+34	0	0	0
+34	0	0	0
+34	0	0	2
+35	0	0	0
+35	0	0	0
+35	0	0	2
+36	0	0	0
+36	0	0	0
+36	0	0	2
+37	0	0	0
+37	0	0	0
+37	0	0	2
+38	0	0	0
+38	0	0	0
+38	0	0	2
+39	0	0	0
+39	0	0	0
+39	0	0	2
+40	0	0	1
+41	0	0	1
+42	0	0	1
+43	0	0	1
+44	0	0	1
+45	0	0	1
+46	0	0	1
+47	0	0	1
 
