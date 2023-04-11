@@ -56,24 +56,24 @@ network Multihop
         hostA: <default("WirelessHost")> like INetworkNode {
             @display("p=152.5,487.5");
         }
-//        hostB: <default("WirelessHost")> like INetworkNode {
-//            @display("p=152.5,642.5");
-//        }
-//        hostC: <default("WirelessHost")> like INetworkNode {
-//            @display("p=307.5,642.5");
-//        }
-//        hostD: <default("WirelessHost")> like INetworkNode {
-//            @display("p=307.5,797.5");
-//        }
-//        hostE: <default("WirelessHost")> like INetworkNode {
-//            @display("p=462.5,797.5");
-//        }
-//        hostF: <default("WirelessHost")> like INetworkNode {
-//            @display("p=462.5,952.5");
-//        }
-//        hostG: <default("WirelessHost")> like INetworkNode {
-//            @display("p=617.5,952.5");
-//        }
+        hostB: <default("WirelessHost")> like INetworkNode {
+            @display("p=152.5,642.5");
+        }
+        hostC: <default("WirelessHost")> like INetworkNode {
+            @display("p=307.5,642.5");
+        }
+        hostD: <default("WirelessHost")> like INetworkNode {
+            @display("p=307.5,797.5");
+        }
+        hostE: <default("WirelessHost")> like INetworkNode {
+            @display("p=462.5,797.5");
+        }
+        hostF: <default("WirelessHost")> like INetworkNode {
+            @display("p=462.5,952.5");
+        }
+        hostG: <default("WirelessHost")> like INetworkNode {
+            @display("p=617.5,952.5");
+        }
 		hostR: <default("WirelessHost")> like INetworkNode {
             @display("p=152.5,335");
         }
