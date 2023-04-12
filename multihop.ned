@@ -43,6 +43,7 @@ network Multihop
         }
         configurator: Ipv4NetworkConfigurator {
             @display("p=580,200");
+            config = xml("<config> <interface hosts='**' address='10.x.x.x' netmask='255.x.x.x'/> <autoroute sourceHosts='**' metric='dataRate'/></config>");
         }
         radioMedium: <default("UnitDiskRadioMedium")> like IRadioMedium {
             @display("p=500,125");
@@ -75,6 +76,6 @@ network Multihop
             @display("p=617.5,952.5");
         }
 		hostR: <default("WirelessHost")> like INetworkNode {
-            @display("p=152.5,335");
+            @display("p=307.5,952.5");
         }
 }
