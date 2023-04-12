@@ -1,0 +1,157 @@
+file 6469 1681249217                                            
+version 2
+run HeatmapGeneration-0-20230411-15:30:40-1760
+attr configname HeatmapGeneration
+attr datetime 20230411-15:30:40
+attr experiment HeatmapGeneration
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Multihop
+attr processid 1760
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.host*.wlan[0].radio.transmitter.power 10mW
+param *.hostR.mobility.turtleScript "xmldoc(\"HeatmapPath.xml\")"
+param *.radioMedium.pathloss.typename "\"ManhattanPathLoss\""
+param *.radioMedium.pathloss.typename "\"FreeSpacePathLoss\""
+param **.bitrate "100 Mbps"
+param *.host*.wlan[0].radio.receiver.modulation "\"QAM-16\""
+param *.host*.wlan[0].radio.transmitter.modulation "\"QAM-16\""
+param *.visualizer.routingTableVisualizer.displayRoutingTables true
+param *.visualizer.routingTableVisualizer.destinationFilter "\"hostA\""
+param *.hostA.numApps 1
+param *.hostA.app[0].typename "\"UdpSink\""
+param *.hostA.app[0].localPort 5001
+param *.hostR.numApps 1
+param *.hostR.app[0].typename "\"UdpBasicApp\""
+param *.hostR.app[0].destAddresses "\"hostA\""
+param *.hostR.app[0].destPort 5001
+param *.hostR.app[0].messageLength 1000B
+param *.hostR.app[0].sendInterval 0.01ms
+param *.hostR.app[1].packetName "\"StreamPacket\""
+param *.hostR.mobility.typename "\"TurtleMobility\""
+param *.hostR.mobility.turtleScript "xmldoc(\"LinearMovement.xml\")"
+param *.radioMedium.typename "\"ApskScalarRadioMedium\""
+param *.radioMedium.backgroundNoise.power -105dBm
+param *.radioMedium.mediumLimitCache.centerFrequency 2.4GHz
+param *.host*.wlan[0].radio.typename "\"ApskScalarRadio\""
+param *.host*.wlan[0].radio.centerFrequency 2.4GHz
+param *.host*.wlan[0].radio.bandwidth 10MHz
+param *.host*.wlan[0].radio.transmitter.modulation "\"QPSK\""
+param *.host*.wlan[0].radio.transmitter.power 1mW
+param *.host*.wlan[0].radio.transmitter.preambleDuration 10us
+param *.host*.wlan[0].radio.transmitter.headerLength 8B
+param *.host*.wlan[0].radio.receiver.modulation "\"QPSK\""
+param *.host*.wlan[0].radio.receiver.sensitivity -120dBm
+param *.host*.wlan[0].radio.receiver.energyDetection -100dBm
+param *.host*.wlan[0].radio.receiver.snirThreshold 4dB
+param *.physicalEnvironment.ground.typename "\"FlatGround\""
+param *.physicalEnvironment.ground.elevation 0m
+param *.host*.ipv4.arp.typename "\"GlobalArp\""
+param *.host*.forwarding true
+param *.configurator.optimizeRoutes false
+param *.host*.wlan[0].typename "\"WirelessInterface\""
+param *.host*.wlan[0].radio.typename "\"UnitDiskRadio\""
+param *.host*.wlan[0].radio.transmitter.communicationRange 300m
+param *.host*.wlan[0].radio.transmitter.interferenceRange 500m
+param *.host*.wlan[0].mac.typename "\"CsmaCaMac\""
+param *.host*.wlan[0].mac.ackTimeout 300us
+param *.host*.wlan[0].mac.useAck true
+param *.host*.wlan[0].queue.typename "\"DropTailQueue\""
+param *.host*.**.bitrate 1Mbps
+param *.hostA.wlan[0].radio.displayCommunicationRange true
+param *.hostC.wlan[0].radio.displayCommunicationRange true
+param *.configurator.addStaticRoutes false
+param *.host*.typename "\"AodvRouter\""
+param *.host*.mobility.typename "\"StationaryMobility\""
+param *.host*.mobility.initialZ 0.1m
+param *.physicalEnvironment.config "xmldoc(\"mine2.xml\")"
+param *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
+param *.visualizer.physicalLinkVisualizer.displayLinks true
+
+vector 0 Multihop.hostA.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 1 Multihop.hostB.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 2 Multihop.hostC.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 3 Multihop.hostD.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 4 Multihop.hostE.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 5 Multihop.hostF.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 6 Multihop.hostG.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 7 Multihop.hostR.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 8 Multihop.hostA.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 9 Multihop.hostB.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 10 Multihop.hostC.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 11 Multihop.hostD.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 12 Multihop.hostE.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 13 Multihop.hostF.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 14 Multihop.hostG.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 15 Multihop.hostR.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+0	6173 27 0 0 0 0 3 0 2 2 4
+1	6200 27 0 0 0 0 3 0 2 2 4
+2	6227 27 0 0 0 0 3 0 2 2 4
+3	6254 27 0 0 0 0 3 0 2 2 4
+4	6281 27 0 0 0 0 3 0 2 2 4
+5	6308 27 0 0 0 0 3 0 2 2 4
+6	6335 27 0 0 0 0 3 0 2 2 4
+7	6362 27 0 0 0 0 3 0 2 2 4
+8	6389 9 0 0 0 0 1 1 1 1 1
+9	6398 9 0 0 0 0 1 1 1 1 1
+10	6407 10 0 0 0 0 1 1 1 1 1
+11	6417 10 0 0 0 0 1 1 1 1 1
+12	6427 10 0 0 0 0 1 1 1 1 1
+13	6437 10 0 0 0 0 1 1 1 1 1
+14	6447 10 0 0 0 0 1 1 1 1 1
+15	6457 10 0 0 0 0 1 1 1 1 1
+
